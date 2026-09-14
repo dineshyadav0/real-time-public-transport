@@ -1,4 +1,6 @@
 import React from 'react';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigation/AppNavigator';
 import {
   SafeAreaView,
   View,
@@ -32,7 +34,12 @@ const buses = [
   },
 ];
 
-export default function PassengerHomeScreen() {
+type Props = NativeStackScreenProps<
+  RootStackParamList,
+  'PassengerHome'
+>;
+
+export default function PassengerHomeScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -89,11 +96,16 @@ export default function PassengerHomeScreen() {
         </View>
 
         {buses.map((bus) => (
-          <TouchableOpacity
-            key={bus.number}
-            style={styles.busCard}
-            activeOpacity={0.8}
-          >
+    <TouchableOpacity
+  key={bus.number}
+  style={styles.busCard}
+  activeOpacity={0.8}
+  onPress={() =>
+    navigation.navigate('BusDetails', {
+      bus,
+    })
+  }
+>
             {/* Bus heading */}
             <View style={styles.busHeader}>
               <View style={styles.busNumberContainer}>
