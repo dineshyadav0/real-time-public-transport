@@ -5,6 +5,7 @@ import WelcomeScreen from '../screens/WelcomeScreen';
 import PassengerHomeScreen from '../screens/passenger/PassengerHomeScreen';
 import DriverHomeScreen from '../screens/driver/DriverHomeScreen';
 import BusDetailsScreen from '../screens/passenger/BusDetailsScreen';
+import ActiveTripScreen from '../screens/driver/ActiveTripScreen';
 export type BusData = {
   number: string;
   route: string;
@@ -23,6 +24,7 @@ export type RootStackParamList = {
   BusDetails: {
     bus: BusData;
   };
+  ActiveTrip: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -39,6 +41,7 @@ export default function AppNavigator() {
       <Stack.Screen name="PassengerHome" component={PassengerHomeScreen} />
       <Stack.Screen name="DriverHome" component={DriverHomeScreen} />
       <Stack.Screen name="BusDetails" component={BusDetailsScreen} />
+      <Stack.Screen name="ActiveTrip" component={ActiveTripScreen} />
     </Stack.Navigator>
   );
 }
