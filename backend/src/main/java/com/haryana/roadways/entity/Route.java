@@ -19,7 +19,8 @@ public class Route {
     @Column(nullable = false)
     private String destination;
 
-    @Column(nullable = false)
+    // Distance is optional because the timetable PDF does not provide it.
+    @Column(name = "total_distance")
     private Double totalDistance;
 
     public Route() {
