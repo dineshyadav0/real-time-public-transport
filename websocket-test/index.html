@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haryana Roadways - WebSocket Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.6.1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 850px; margin: 30px auto; padding: 0 16px; }
+        button { padding: 10px 16px; margin-right: 8px; cursor: pointer; }
+        #status { font-weight: bold; margin: 16px 0; }
+        pre { background: #f2f2f2; padding: 14px; min-height: 180px; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h2>Haryana Roadways - Live GPS WebSocket Test</h2>
+    <label>Trip ID: <input id="tripId" type="number" value="1" min="1"></label>
+    <button onclick="connect()">Connect</button>
+    <button onclick="disconnect()">Disconnect</button>
+    <div id="status">Disconnected</div>
+    <h3>Received GPS updates</h3>
+    <pre id="messages">Waiting for messages...</pre>
+
+    <script>
+        let client = null;
+
+        function connect() {
+            if (client && client.active) {
+                document.getElementById("status").textContent = "Already connected";
+                return;
+            }
+
+            const tripId = document.getElementById("tripId").value;
+            if (!tripId) {
+                alert("Enter a trip ID");
+                return;
+            }
+
+            client = new StompJs.Client({
+                webSocketFactory: () => new SockJS("http://localhost:8081/ws"),
+                reconnectDelay: 0,
+                onConnect: () => {
+                    document.getElementById("status").textContent =
+                        "Connected. Subscribed to /topic/trips/" + tripId;
+
+                    document.getElementById("messages").textContent = "";
+
+                    client.subscribe("/topic/trips/" + tripId, message => {
+                        const line = new Date().toLocaleTimeString() +
+                            "\n" + JSON.stringify(JSON.parse(message.body), null, 2) +
+                            "\n\n";
+                        document.getElementById("messages").textContent =
+                            line + document.getElementById("messages").textContent;
+                    });
+                },
+                onStompError: frame => {
+                    document.getElementById("status").textContent =
+                        "STOMP error: " + frame.headers["message"];
+                },
+                onWebSocketError: () => {
+                    document.getElementById("status").textContent =
+                        "WebSocket connection error";
+                },
+                onWebSocketClose: () => {
+                    document.getElementById("status").textContent = "Connection closed";
+                }
+            });
+
+            client.activate();
+            document.getElementById("status").textContent = "Connecting...";
+        }
+
+        function disconnect() {
+            if (client) {
+                client.deactivate();
+                client = null;
+            }
+            document.getElementById("status").textContent = "Disconnected";
+        }
+    </script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 package com.haryana.roadways.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -84,6 +86,22 @@ public class GlobalExceptionHandler {
                 buildResponse(HttpStatus.CONFLICT,
                         "The request conflicts with existing data",
                         request, null)
+        );
+    }
+
+    @ExceptionHandler(ResponseStatusException.class)
+    public ResponseEntity<ApiErrorResponse> handleResponseStatus(
+            ResponseStatusException ex,
+            HttpServletRequest request) {
+
+        HttpStatus status = HttpStatus.valueOf(ex.getStatusCode().value());
+
+        String message = ex.getReason() != null
+                ? ex.getReason()
+                : status.getReasonPhrase();
+
+        return ResponseEntity.status(status).body(
+                buildResponse(status, message, request, null)
         );
     }
 

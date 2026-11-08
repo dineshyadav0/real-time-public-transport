@@ -41,6 +41,21 @@ public class TripController {
         return ResponseEntity.ok(tripService.updateTrip(id, trip));
     }
 
+    @PatchMapping("/{id}/start")
+    public ResponseEntity<Trip> startTrip(@PathVariable Long id) {
+        return ResponseEntity.ok(tripService.startTrip(id));
+    }
+
+    @PatchMapping("/{id}/complete")
+    public ResponseEntity<Trip> completeTrip(@PathVariable Long id) {
+        return ResponseEntity.ok(tripService.completeTrip(id));
+    }
+
+    @PatchMapping("/{id}/cancel")
+    public ResponseEntity<Trip> cancelTrip(@PathVariable Long id) {
+        return ResponseEntity.ok(tripService.cancelTrip(id));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTrip(@PathVariable Long id) {
         tripService.deleteTrip(id);
