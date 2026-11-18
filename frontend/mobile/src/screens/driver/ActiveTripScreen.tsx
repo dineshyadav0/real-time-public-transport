@@ -1,182 +1,331 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   SafeAreaView,
   View,
   Text,
   TouchableOpacity,
   StyleSheet,
+  Alert,
+  ActivityIndicator,
 } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import * as Location from 'expo-location';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { ApiService, calculateDistanceKm } from '../../services/apiService';
 
-const calculateDistance = (
-  lat1: number,
-  lon1: number,
-  lat2: number,
-  lon2: number,
-) => {
-  const R = 6371;
+type Props = NativeStackScreenProps<RootStackParamList, 'ActiveTrip'>;
 
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+export default function ActiveTripScreen({ route, navigation }: Props) {
+  const params = route.params;
+  const tripId = params?.tripId ?? 1;
+  const tripNumber = params?.tripNumber ?? 'TRIP-01';
+  const busNumber = params?.busNumber ?? 'HR-12-8834';
+  const source = params?.source ?? 'Rohtak';
+  const destination = params?.destination ?? 'Delhi';
 
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-
-  const c =
-    2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-  return R * c;
-};
-
-export default function ActiveTripScreen({ navigation }: any) {
-  const [location, setLocation] =
+  // Live Location & telemetry states
+  const [currentLocation, setCurrentLocation] =
     useState<Location.LocationObject | null>(null);
+  const [distanceKm, setDistanceKm] = useState(0);
+  const [gpsStatus, setGpsStatus] = useState('Acquiring satellite GPS lock...');
+  const [packetCount, setPacketCount] = useState(0);
+  const [lastSubmittedTime, setLastSubmittedTime] = useState<string>('--');
+  const [isEndingTrip, setIsEndingTrip] = useState(false);
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
 
-  const [distance, setDistance] = useState(0);
-  const [gpsStatus, setGpsStatus] = useState('Starting GPS...');
+  // References to prevent duplicate subscriptions and cleanly tear down
+  const locationSubscriptionRef = useRef<Location.LocationSubscription | null>(null);
+  const isTripCompletedRef = useRef(false);
+  const previousCoordsRef = useRef<{ latitude: number; longitude: number } | null>(null);
 
+  // Elapsed timer
   useEffect(() => {
-    let subscription: Location.LocationSubscription | null = null;
+    const timer = setInterval(() => {
+      setElapsedSeconds((sec) => sec + 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-    const startTracking = async () => {
+  // Format seconds to HH:MM:SS
+  const formatTimer = (totalSeconds: number): string => {
+    const hrs = Math.floor(totalSeconds / 3600);
+    const mins = Math.floor((totalSeconds % 3600) / 60);
+    const secs = totalSeconds % 60;
+    return `${hrs > 0 ? `${hrs}:` : ''}${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  };
+
+  /**
+   * Start high-precision GPS tracking and stream to POST /api/gps
+   */
+  useEffect(() => {
+    let isMounted = true;
+
+    const initTracking = async () => {
       try {
-        const { status } =
-          await Location.requestForegroundPermissionsAsync();
-
+        const { status } = await Location.requestForegroundPermissionsAsync();
         if (status !== 'granted') {
-          setGpsStatus('Location permission denied');
+          if (isMounted) {
+            setGpsStatus('Location permission denied by driver');
+          }
+          Alert.alert(
+            'GPS Permission Denied',
+            'Location access is required to stream real-time coordinates to Haryana Roadways dispatch and passengers.'
+          );
           return;
         }
 
-        setGpsStatus('GPS tracking active');
+        if (isMounted) {
+          setGpsStatus('GPS locked • Streaming coordinates');
+        }
 
-        const initialLocation =
-          await Location.getCurrentPositionAsync({
-            accuracy: Location.Accuracy.High,
-          });
+        // Get initial location fix
+        const initialLoc = await Location.getCurrentPositionAsync({
+          accuracy: Location.Accuracy.High,
+        });
 
-        setLocation(initialLocation);
+        if (isMounted && initialLoc) {
+          setCurrentLocation(initialLoc);
+          previousCoordsRef.current = {
+            latitude: initialLoc.coords.latitude,
+            longitude: initialLoc.coords.longitude,
+          };
 
-        subscription = await Location.watchPositionAsync(
+          // Send first GPS reading to backend
+          sendReadingToBackend(
+            initialLoc.coords.latitude,
+            initialLoc.coords.longitude,
+            Math.max(0, (initialLoc.coords.speed || 0) * 3.6)
+          );
+        }
+
+        // Clean up previous subscription if any
+        if (locationSubscriptionRef.current) {
+          locationSubscriptionRef.current.remove();
+          locationSubscriptionRef.current = null;
+        }
+
+        // Watch position continuously while trip is running
+        const sub = await Location.watchPositionAsync(
           {
             accuracy: Location.Accuracy.High,
-            timeInterval: 3000,
-            distanceInterval: 5,
+            timeInterval: 3000, // Every 3 seconds
+            distanceInterval: 5, // Or 5 meters
           },
-          (newLocation) => {
-            setLocation((previousLocation) => {
-              if (previousLocation) {
-                const addedDistance = calculateDistance(
-                  previousLocation.coords.latitude,
-                  previousLocation.coords.longitude,
-                  newLocation.coords.latitude,
-                  newLocation.coords.longitude,
-                );
+          (newLoc) => {
+            if (!isMounted || isTripCompletedRef.current) return;
 
-                setDistance((previousDistance) =>
-                  previousDistance + addedDistance,
-                );
+            setCurrentLocation(newLoc);
+
+            // Compute distance delta
+            if (previousCoordsRef.current) {
+              const delta = calculateDistanceKm(
+                previousCoordsRef.current.latitude,
+                previousCoordsRef.current.longitude,
+                newLoc.coords.latitude,
+                newLoc.coords.longitude
+              );
+              if (delta > 0.002) {
+                setDistanceKm((prev) => prev + delta);
               }
+            }
+            previousCoordsRef.current = {
+              latitude: newLoc.coords.latitude,
+              longitude: newLoc.coords.longitude,
+            };
 
-              return newLocation;
-            });
-          },
+            const speedKmh = Math.max(0, (newLoc.coords.speed || 0) * 3.6);
+
+            // Transmit to backend
+            sendReadingToBackend(
+              newLoc.coords.latitude,
+              newLoc.coords.longitude,
+              speedKmh
+            );
+          }
         );
-      } catch (error) {
-        console.error('GPS error:', error);
-        setGpsStatus('Unable to access GPS');
+
+        locationSubscriptionRef.current = sub;
+      } catch (err: any) {
+        if (isMounted) {
+          setGpsStatus(`GPS error: ${err?.message || 'Signal lost'}`);
+        }
       }
     };
 
-    startTracking();
+    initTracking();
 
     return () => {
-      if (subscription) {
-        subscription.remove();
+      isMounted = false;
+      if (locationSubscriptionRef.current) {
+        locationSubscriptionRef.current.remove();
+        locationSubscriptionRef.current = null;
       }
     };
-  }, []);
+  }, [tripId]);
 
-  const speed = location?.coords.speed
-    ? Math.max(0, location.coords.speed * 3.6)
+  // Transmit location update to POST /api/gps
+  const sendReadingToBackend = async (
+    lat: number,
+    lng: number,
+    speedKmh: number
+  ) => {
+    if (isTripCompletedRef.current) return;
+
+    try {
+      await ApiService.sendGpsReading(tripId, lat, lng, speedKmh);
+      setPacketCount((c) => c + 1);
+      setLastSubmittedTime(new Date().toLocaleTimeString());
+      setGpsStatus('Active • Coordinates broadcasted');
+    } catch (err: any) {
+      console.warn('GPS transmission error:', err?.message);
+      setGpsStatus(`Transmission alert: ${err?.message || 'Network delay'}`);
+    }
+  };
+
+  /**
+   * Driver ends the trip:
+   * 1. Calls PATCH /api/trips/{tripId}/complete on backend
+   * 2. Stops GPS tracking after successful completion
+   * 3. Prevents further GPS submissions
+   * 4. Returns to Driver Home
+   */
+  const handleEndTrip = () => {
+    Alert.alert(
+      'Complete Trip',
+      `Are you sure you want to complete ${tripNumber} (${source} → ${destination})? GPS tracking will stop immediately.`,
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'End Trip Now',
+          style: 'destructive',
+          onPress: async () => {
+            setIsEndingTrip(true);
+            try {
+              // 1. Mark completed in state & tear down watcher first
+              isTripCompletedRef.current = true;
+              if (locationSubscriptionRef.current) {
+                locationSubscriptionRef.current.remove();
+                locationSubscriptionRef.current = null;
+              }
+
+              // 2. Call backend lifecycle endpoint: PATCH /api/trips/{tripId}/complete
+              await ApiService.completeTrip(tripId);
+
+              Alert.alert(
+                'Trip Completed',
+                `Trip ${tripNumber} has ended successfully. Total distance: ${distanceKm.toFixed(2)} km.`,
+                [
+                  {
+                    text: 'OK',
+                    onPress: () => navigation.goBack(),
+                  },
+                ]
+              );
+            } catch (err: any) {
+              Alert.alert(
+                'End Trip Error',
+                err?.message ||
+                  'Backend rejected completion. Check server connection.'
+              );
+              setIsEndingTrip(false);
+            }
+          },
+        },
+      ]
+    );
+  };
+
+  const speedKmh = currentLocation?.coords.speed
+    ? Math.max(0, currentLocation.coords.speed * 3.6)
     : 0;
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
+        {/* Active badge */}
+        <View style={styles.statusHeader}>
+          <View style={styles.statusDot} />
+          <Text style={styles.statusText}>TRIP ACTIVE • BROADCASTING GPS</Text>
+        </View>
 
-        <Text style={styles.status}>●  TRIP ACTIVE</Text>
-
-        <Text style={styles.title}>Bus 102</Text>
-
-        <Text style={styles.route}>
-          City Center → Railway Station
+        {/* Bus & Route Titles */}
+        <Text style={styles.busTitle}>BUS {busNumber}</Text>
+        <Text style={styles.routeSubtitle}>
+          {source} → {destination}
         </Text>
 
+        {/* GPS Card */}
         <View style={styles.gpsCard}>
-          <Text style={styles.gpsIcon}>📡</Text>
+          <View style={styles.gpsCardTop}>
+            <Text style={styles.gpsIcon}>📡</Text>
+            <View style={{ flex: 1, marginLeft: 12 }}>
+              <Text style={styles.gpsCardTitle}>Live GPS Telemetry</Text>
+              <Text style={styles.gpsCardStatus}>{gpsStatus}</Text>
+            </View>
+          </View>
 
-          <Text style={styles.gpsTitle}>
-            GPS tracking active
-          </Text>
-
-          <Text style={styles.gpsText}>
-  {gpsStatus}
-</Text>
-
+          {/* Current Coordinates Box */}
           <View style={styles.locationBox}>
-            <Text style={styles.locationLabel}>
-              CURRENT LOCATION
-            </Text>
-
+            <Text style={styles.locationLabel}>COORDINATES (LAT, LNG)</Text>
             <Text style={styles.locationValue}>
-  {location
-    ? `${location.coords.latitude.toFixed(6)}, ${location.coords.longitude.toFixed(6)}`
-    : gpsStatus}
-</Text>
+              {currentLocation
+                ? `${currentLocation.coords.latitude.toFixed(6)}, ${currentLocation.coords.longitude.toFixed(6)}`
+                : 'Acquiring satellite coordinates...'}
+            </Text>
+          </View>
+
+          {/* Telemetry packet details */}
+          <View style={styles.telemetryRow}>
+            <Text style={styles.telemetryText}>
+              Trip ID: #{tripId} • Packets sent: {packetCount}
+            </Text>
+            <Text style={styles.telemetryText}>
+              Last broadcast: {lastSubmittedTime}
+            </Text>
           </View>
         </View>
 
+        {/* Real-time stats row: Distance, Speed, Elapsed Time */}
         <View style={styles.statsRow}>
-          <View style={styles.stat}>
-            <Text style={styles.statValue}>
-  {distance.toFixed(2)} km
-</Text>
+          <View style={styles.statBox}>
+            <Text style={styles.statValue}>{distanceKm.toFixed(2)} km</Text>
             <Text style={styles.statLabel}>Distance</Text>
           </View>
 
-          <View style={styles.stat}>
-            <Text style={styles.statValue}>0</Text>
-            <Text style={styles.statLabel}>Stops passed</Text>
+          <View style={styles.statBox}>
+            <Text style={styles.statValue}>{speedKmh.toFixed(1)} km/h</Text>
+            <Text style={styles.statLabel}>Current Speed</Text>
           </View>
 
-          <View style={styles.stat}>
-    <Text style={styles.statValue}>
-  {speed.toFixed(1)} km/h
-</Text>
-            <Text style={styles.statLabel}>Speed</Text>
+          <View style={styles.statBox}>
+            <Text style={styles.statValue}>{formatTimer(elapsedSeconds)}</Text>
+            <Text style={styles.statLabel}>Trip Duration</Text>
           </View>
         </View>
 
+        {/* Spacer */}
         <View style={styles.spacer} />
 
+        {/* End Trip Button */}
         <TouchableOpacity
-          style={styles.endButton}
-          onPress={() => navigation.goBack()}
+          style={[styles.endButton, isEndingTrip && styles.buttonDisabled]}
+          activeOpacity={0.85}
+          onPress={handleEndTrip}
+          disabled={isEndingTrip}
         >
-          <Text style={styles.endButtonText}>
-            End Trip
-          </Text>
+          {isEndingTrip ? (
+            <ActivityIndicator color="#FFFFFF" size="small" />
+          ) : (
+            <Text style={styles.endButtonText}>End Trip & Stop GPS</Text>
+          )}
         </TouchableOpacity>
 
-        <Text style={styles.footer}>
-          GPS tracking stops when the trip ends.
+        <Text style={styles.footerNote}>
+          Calls PATCH /api/trips/{tripId}/complete and halts location sharing.
         </Text>
-
       </View>
     </SafeAreaView>
   );
@@ -193,100 +342,142 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
-  status: {
-    fontSize: 12,
+  statusHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+    backgroundColor: '#ECFDF5',
+    alignSelf: 'flex-start',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: '#A7F3D0',
+  },
+
+  statusDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#10B981',
+    marginRight: 8,
+  },
+
+  statusText: {
+    fontSize: 10,
     fontWeight: '800',
     color: '#059669',
-    letterSpacing: 0.5,
-    marginTop: 15,
+    letterSpacing: 0.6,
   },
 
-  title: {
-    fontSize: 36,
+  busTitle: {
+    fontSize: 32,
     fontWeight: '800',
     color: '#111827',
-    marginTop: 12,
+    marginTop: 14,
   },
 
-  route: {
-    fontSize: 14,
-    color: '#6B7280',
-    marginTop: 5,
+  routeSubtitle: {
+    fontSize: 15,
+    color: '#4B5563',
+    fontWeight: '600',
+    marginTop: 4,
   },
 
   gpsCard: {
-    marginTop: 25,
+    marginTop: 20,
     backgroundColor: '#FFFFFF',
     borderRadius: 20,
-    padding: 20,
+    padding: 18,
     borderWidth: 1,
     borderColor: '#E5E7EB',
   },
 
-  gpsIcon: {
-    fontSize: 32,
+  gpsCardTop: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
-  gpsTitle: {
-    fontSize: 18,
+  gpsIcon: {
+    fontSize: 28,
+  },
+
+  gpsCardTitle: {
+    fontSize: 15,
     fontWeight: '800',
     color: '#111827',
-    marginTop: 12,
   },
 
-  gpsText: {
-    fontSize: 12,
-    color: '#6B7280',
-    lineHeight: 18,
-    marginTop: 5,
+  gpsCardStatus: {
+    fontSize: 11,
+    color: '#059669',
+    fontWeight: '600',
+    marginTop: 2,
   },
 
   locationBox: {
-    marginTop: 18,
+    marginTop: 14,
     backgroundColor: '#F3F4F6',
-    borderRadius: 14,
-    padding: 14,
+    borderRadius: 12,
+    padding: 12,
   },
 
   locationLabel: {
     fontSize: 9,
     fontWeight: '800',
     color: '#9CA3AF',
-    letterSpacing: 0.7,
+    letterSpacing: 0.6,
   },
 
   locationValue: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700',
-    color: '#374151',
-    marginTop: 5,
+    color: '#1F2937',
+    marginTop: 4,
+  },
+
+  telemetryRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 12,
+    paddingTop: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#F3F4F6',
+  },
+
+  telemetryText: {
+    fontSize: 10,
+    color: '#6B7280',
+    fontWeight: '500',
   },
 
   statsRow: {
     flexDirection: 'row',
     gap: 10,
-    marginTop: 12,
+    marginTop: 14,
   },
 
-  stat: {
+  statBox: {
     flex: 1,
     backgroundColor: '#FFFFFF',
     borderRadius: 16,
     padding: 14,
+    alignItems: 'center',
     borderWidth: 1,
     borderColor: '#E5E7EB',
   },
 
   statValue: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '800',
     color: '#111827',
   },
 
   statLabel: {
-    fontSize: 9,
+    fontSize: 10,
     color: '#9CA3AF',
-    marginTop: 5,
+    marginTop: 4,
+    fontWeight: '600',
   },
 
   spacer: {
@@ -296,22 +487,31 @@ const styles = StyleSheet.create({
   endButton: {
     height: 56,
     borderRadius: 18,
-    backgroundColor: '#111827',
+    backgroundColor: '#DC2626',
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#DC2626',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+
+  buttonDisabled: {
+    opacity: 0.6,
   },
 
   endButtonText: {
     color: '#FFFFFF',
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '800',
   },
 
-  footer: {
+  footerNote: {
     textAlign: 'center',
     fontSize: 10,
     color: '#9CA3AF',
     marginTop: 10,
-    marginBottom: 5,
+    marginBottom: 6,
   },
 });
