@@ -8,12 +8,15 @@ import {
   StyleSheet,
   ActivityIndicator,
   Share,
+  Linking,
+  Platform,
+  Alert,
 } from 'react-native';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/AppNavigator';
 import { WebSocketService, WebSocketStatus } from '../../services/webSocketService';
-import { ApiService } from '../../services/apiService';
+import { ApiService, calculateDistanceKm } from '../../services/apiService';
 import { LiveLocationUpdate } from '../../types';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'BusDetails'>;
@@ -39,6 +42,52 @@ export default function BusDetailsScreen({ route, navigation }: Props) {
   const currentLatitude = liveLocation ? liveLocation.latitude : initialLat;
   const currentLongitude = liveLocation ? liveLocation.longitude : initialLng;
   const currentSpeed = liveLocation ? liveLocation.speed : 0;
+
+  // Walking Speed and Dynamic Catchability state
+  const [walkSpeed, setWalkSpeed] = useState<number>(4.5);
+  const [isTrackingThisBus, setIsTrackingThisBus] = useState<boolean>(false);
+
+  // Next stop resolution
+  const stops = bus.stops || [];
+  const nextStop = stops.length > 1 ? stops[1] : stops[0];
+  const nextStopName = nextStop?.name || 'Next Stop';
+  const nextStopLat = nextStop?.latitude ?? currentLatitude + 0.012;
+  const nextStopLng = nextStop?.longitude ?? currentLongitude + 0.010;
+
+  // Next Stop ETA & Distance
+  const distToNextKm = calculateDistanceKm(currentLatitude, currentLongitude, nextStopLat, nextStopLng);
+  const effectiveSpeed = currentSpeed > 10 ? currentSpeed : 35;
+  const nextStopEtaMinutes = Math.max(2, Math.round((distToNextKm / effectiveSpeed) * 60));
+
+  // Dynamic Walk distance & walk time
+  const walkDistanceMeters = Math.min(850, Math.max(180, Math.round(distToNextKm * 1000 * 0.4)));
+  const metersPerMin = (walkSpeed * 1000) / 60;
+  const dynamicWalkMin = Math.max(1, Math.round(walkDistanceMeters / metersPerMin));
+
+  // Dynamic Catch Chance
+  const timeDifference = nextStopEtaMinutes - dynamicWalkMin;
+  let dynamicCatchPercent: number;
+  if (timeDifference >= 4) {
+    dynamicCatchPercent = Math.min(98, 86 + timeDifference * 2);
+  } else if (timeDifference >= 0) {
+    dynamicCatchPercent = Math.min(84, 62 + timeDifference * 6);
+  } else {
+    dynamicCatchPercent = Math.max(15, 45 + timeDifference * 12);
+  }
+
+  const openInNativeMaps = () => {
+    const label = encodeURIComponent(`Haryana Roadways Bus ${bus.number}`);
+    const url = Platform.select({
+      ios: `maps://?q=${label}&ll=${currentLatitude},${currentLongitude}&z=15`,
+      android: `geo:${currentLatitude},${currentLongitude}?q=${currentLatitude},${currentLongitude}(${label})`,
+      default: `https://maps.google.com/?q=${currentLatitude},${currentLongitude}`,
+    });
+    if (url) {
+      Linking.openURL(url).catch(() => {
+        Linking.openURL(`https://maps.google.com/?q=${currentLatitude},${currentLongitude}`);
+      });
+    }
+  };
 
   // Subscribe to live WebSocket updates if bus has a tripId
   useEffect(() => {
@@ -213,10 +262,40 @@ export default function BusDetailsScreen({ route, navigation }: Props) {
                 : 'SCHEDULED ROUTE'}
             </Text>
           </View>
+
+          {/* Quick Action: Open in Native Apple or Google Maps */}
+          <TouchableOpacity
+            style={styles.openExternalMapBtn}
+            activeOpacity={0.85}
+            onPress={openInNativeMaps}
+          >
+            <Text style={styles.openExternalMapBtnText}>
+              {Platform.OS === 'ios' ? '🗺️ Apple Maps' : '🗺️ Google Maps'}
+            </Text>
+          </TouchableOpacity>
         </View>
 
         {/* Content Details */}
         <View style={styles.content}>
+          {/* Next Stop Arrival Hero Card */}
+          <View style={styles.nextStopHeroCard}>
+            <View style={styles.nextStopHeroRow}>
+              <View style={{ flex: 1, paddingRight: 8 }}>
+                <Text style={styles.nextStopHeroPre}>NEXT STOP ARRIVAL</Text>
+                <Text style={styles.nextStopHeroTitle} numberOfLines={1}>{nextStopName}</Text>
+                <Text style={styles.nextStopHeroSub}>
+                  {isLiveActive
+                    ? `${distToNextKm.toFixed(1)} km away • Final destination ETA: ${bus.eta}`
+                    : `Scheduled service • ${distToNextKm.toFixed(1)} km away`}
+                </Text>
+              </View>
+              <View style={styles.nextStopHeroBadge}>
+                <Text style={styles.nextStopHeroEtaVal}>{isLiveActive ? nextStopEtaMinutes : '—'}</Text>
+                <Text style={styles.nextStopHeroEtaUnit}>MIN</Text>
+              </View>
+            </View>
+          </View>
+
           {/* Main Bus Header Card */}
           <View style={styles.mainCard}>
             <View style={styles.cardHeader}>
@@ -301,20 +380,89 @@ export default function BusDetailsScreen({ route, navigation }: Props) {
             </View>
           </View>
 
-          {/* Catch Probability Banner */}
-          <View style={styles.catchBanner}>
-            <View style={{ flex: 1 }}>
-              <Text style={styles.catchBannerTitle}>Chance you will catch it</Text>
-              <Text style={styles.catchBannerSubtitle}>
-                🚶 ~{bus.walking || '4 min'} walking time to nearest boarding point
-              </Text>
+          {/* Dynamic Catch Probability Banner with Walking Pace Selector */}
+          <View style={styles.catchBannerCard}>
+            <View style={styles.catchBannerTopRow}>
+              <View style={{ flex: 1, paddingRight: 8 }}>
+                <Text style={styles.catchBannerTitle}>Chance you will catch it</Text>
+                <Text style={styles.catchBannerSubtitle}>
+                  🚶 {dynamicWalkMin} min walk ({walkDistanceMeters}m) to {nextStopName} • 🚌 {nextStopEtaMinutes} min arrival
+                </Text>
+              </View>
+              <View style={styles.catchRing}>
+                <Text style={styles.catchRingText}>
+                  {dynamicCatchPercent}%
+                </Text>
+              </View>
             </View>
-            <View style={styles.catchRing}>
-              <Text style={styles.catchRingText}>
-                {bus.catchChance || 85}%
-              </Text>
+
+            {/* Walking Pace Selector */}
+            <View style={styles.paceSelectorRow}>
+              <Text style={styles.paceLabel}>Walking Speed:</Text>
+              <TouchableOpacity
+                style={[styles.pacePill, walkSpeed === 4.5 && styles.pacePillActive]}
+                onPress={() => setWalkSpeed(4.5)}
+                activeOpacity={0.7}
+              >
+                <Text style={[styles.pacePillText, walkSpeed === 4.5 && styles.pacePillTextActive]}>
+                  🚶 4.5 km/h
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.pacePill, walkSpeed === 6.0 && styles.pacePillActive]}
+                onPress={() => setWalkSpeed(6.0)}
+                activeOpacity={0.7}
+              >
+                <Text style={[styles.pacePillText, walkSpeed === 6.0 && styles.pacePillTextActive]}>
+                  🏃 6.0 km/h
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.pacePill, walkSpeed === 9.0 && styles.pacePillActive]}
+                onPress={() => setWalkSpeed(9.0)}
+                activeOpacity={0.7}
+              >
+                <Text style={[styles.pacePillText, walkSpeed === 9.0 && styles.pacePillTextActive]}>
+                  ⚡ 9.0 km/h
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
+
+          {/* Active Tracking Status Banner */}
+          {isTrackingThisBus && (
+            <View style={styles.trackingActiveBanner}>
+              <View style={styles.liveDot} />
+              <Text style={styles.trackingActiveBannerText}>
+                🔔 Tracking active: You will receive alerts when this bus departs, reaches stops, or approaches you.
+              </Text>
+            </View>
+          )}
+
+          {/* Bottom Fixed Button: Track This Bus / Stop Tracking */}
+          <TouchableOpacity
+            style={[styles.bigTrackBtn, isTrackingThisBus && styles.bigTrackBtnActive]}
+            activeOpacity={0.88}
+            onPress={() => {
+              if (!isTrackingThisBus) {
+                setIsTrackingThisBus(true);
+                Alert.alert(
+                  'Live Tracking Activated ✅',
+                  'OK! Now we will send you alerts when the bus is moving, when it stopped, and when it is getting near you or the next stop.'
+                );
+              } else {
+                setIsTrackingThisBus(false);
+                Alert.alert(
+                  'Tracking Stopped 🛑',
+                  'Live approach alerts have been stopped for this bus.'
+                );
+              }
+            }}
+          >
+            <Text style={[styles.bigTrackBtnText, isTrackingThisBus && styles.bigTrackBtnTextActive]}>
+              {isTrackingThisBus ? '🛑 Stop Tracking' : '🔔 Track this bus'}
+            </Text>
+          </TouchableOpacity>
 
           {/* Route Stops Sequence */}
           <Text style={styles.sectionHeading}>Route stops & Timings</Text>
@@ -792,5 +940,172 @@ const styles = StyleSheet.create({
     color: '#6B7280',
     marginTop: 4,
     lineHeight: 16,
+  },
+
+  /* Native Map Quick Action */
+  openExternalMapBtn: {
+    position: 'absolute',
+    top: 12,
+    right: 12,
+    backgroundColor: 'rgba(15, 23, 42, 0.88)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+    zIndex: 10,
+  },
+  openExternalMapBtnText: {
+    color: '#FFFFFF',
+    fontSize: 11,
+    fontWeight: '800',
+  },
+
+  /* Next Stop Hero Card */
+  nextStopHeroCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 18,
+    padding: 16,
+    marginBottom: 14,
+    borderWidth: 1.5,
+    borderColor: '#BAE6FD',
+    shadowColor: '#0284C7',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  nextStopHeroRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  nextStopHeroPre: {
+    fontSize: 10,
+    fontWeight: '800',
+    color: '#0284C7',
+    letterSpacing: 0.8,
+    marginBottom: 4,
+  },
+  nextStopHeroTitle: {
+    fontSize: 18,
+    fontWeight: '900',
+    color: '#0F172A',
+  },
+  nextStopHeroSub: {
+    fontSize: 12,
+    color: '#64748B',
+    marginTop: 3,
+  },
+  nextStopHeroBadge: {
+    backgroundColor: '#0284C7',
+    borderRadius: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  nextStopHeroEtaVal: {
+    fontSize: 22,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    lineHeight: 24,
+  },
+  nextStopHeroEtaUnit: {
+    fontSize: 9,
+    fontWeight: '800',
+    color: '#E0F2FE',
+    letterSpacing: 0.5,
+  },
+
+  /* Catch Banner Card & Speed Switcher */
+  catchBannerCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+  },
+  catchBannerTopRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  paceSelectorRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 12,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#F1F5F9',
+    gap: 6,
+  },
+  paceLabel: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#64748B',
+    marginRight: 2,
+  },
+  pacePill: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 10,
+    backgroundColor: '#F1F5F9',
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+  },
+  pacePillActive: {
+    backgroundColor: '#0F172A',
+    borderColor: '#0F172A',
+  },
+  pacePillText: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: '#475569',
+  },
+  pacePillTextActive: {
+    color: '#FFFFFF',
+  },
+
+  /* Live Tracking Status Banner & CTA */
+  trackingActiveBanner: {
+    backgroundColor: '#F0FDF4',
+    borderRadius: 14,
+    padding: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    borderWidth: 1.5,
+    borderColor: '#86EFAC',
+  },
+  trackingActiveBannerText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#166534',
+    marginLeft: 8,
+    flex: 1,
+    lineHeight: 16,
+  },
+  bigTrackBtn: {
+    backgroundColor: '#0F172A',
+    borderRadius: 16,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginBottom: 16,
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  bigTrackBtnActive: {
+    backgroundColor: '#15803D',
+  },
+  bigTrackBtnText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '800',
+  },
+  bigTrackBtnTextActive: {
+    color: '#FFFFFF',
   },
 });

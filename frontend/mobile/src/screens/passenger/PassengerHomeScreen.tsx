@@ -60,6 +60,65 @@ const HARYANA_CITIES = [
   'Delhi NCR',
 ];
 
+// Levenshtein distance for fuzzy typo-tolerant district and bus search
+function levenshteinDistance(a: string, b: string): number {
+  const m = a.length;
+  const n = b.length;
+  const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (a[i - 1] === b[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1];
+      } else {
+        dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+      }
+    }
+  }
+  return dp[m][n];
+}
+
+// Typo-tolerant search helper: matches substrings ("A", "102"), acronyms, and typos ("kurshetra" -> "kurukshetra")
+function fuzzyMatch(targetStr: string, queryStr: string): boolean {
+  if (!queryStr) return true;
+  const target = (targetStr || '').toLowerCase().trim();
+  const query = queryStr.toLowerCase().trim();
+
+  // 1. Direct substring match (e.g. "A", "102", "rohtak")
+  if (target.includes(query)) return true;
+
+  // 2. Tokenized word comparison for typos
+  const words = target.split(/[\s\-_,./]+/);
+  for (const word of words) {
+    if (!word) continue;
+    if (word.includes(query)) return true;
+
+    // Check typo edits (e.g. "kurshetra" vs "kurukshetra", "bhiwni" vs "bhiwani")
+    if (query.length >= 3) {
+      const allowedEdits = query.length <= 4 ? 1 : query.length <= 8 ? 2 : 3;
+      if (levenshteinDistance(word, query) <= allowedEdits) {
+        return true;
+      }
+      if (word.length >= query.length) {
+        const sub = word.substring(0, query.length);
+        if (levenshteinDistance(sub, query) <= 1) return true;
+      }
+    }
+  }
+
+  // 3. Subsequence matching (e.g. "kru" -> "kurukshetra")
+  let qIdx = 0;
+  for (let tIdx = 0; tIdx < target.length && qIdx < query.length; tIdx++) {
+    if (target[tIdx] === query[qIdx]) {
+      qIdx++;
+    }
+  }
+  if (qIdx === query.length) return true;
+
+  return false;
+}
+
 export default function PassengerHomeScreen({ navigation }: Props) {
   // Data states from backend
   const [buses, setBuses] = useState<Bus[]>([]);
@@ -295,42 +354,53 @@ export default function PassengerHomeScreen({ navigation }: Props) {
     });
   }, [buses, routes, trips, stops]);
 
-  // Apply filters: Search query, Status Filter (All/Live/Offline), and Quick Pill
+  // Pagination State (6 items per page)
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 6;
+
+  // Reset page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedCity, statusFilter, activePill]);
+
+  // Apply filters: Fuzzy Typo-Tolerant Search, Status Filter (All/Live/Offline), and Quick Pill
   const filteredBuses = useMemo(() => {
     let list = unifiedBuses;
+    const q = searchQuery.trim().toLowerCase();
 
-    // Search query filter
-    if (searchQuery.trim().length > 0) {
-      const q = searchQuery.toLowerCase().trim();
+    // 1. Fuzzy Search query filter (matches typos like "kurshetra", "bhiwni", single chars like "A")
+    if (q.length > 0) {
       list = list.filter(
         (b) =>
-          b.number.toLowerCase().includes(q) ||
-          b.route.toLowerCase().includes(q) ||
-          b.origin.toLowerCase().includes(q) ||
-          b.destination.toLowerCase().includes(q) ||
-          (b.registrationNumber && b.registrationNumber.toLowerCase().includes(q))
+          fuzzyMatch(b.number, q) ||
+          fuzzyMatch(b.route, q) ||
+          fuzzyMatch(b.origin, q) ||
+          fuzzyMatch(b.destination, q) ||
+          (b.depot ? fuzzyMatch(b.depot, q) : false) ||
+          (b.registrationNumber ? fuzzyMatch(b.registrationNumber, q) : false) ||
+          b.stops.some((s) => fuzzyMatch(s.name, q))
       );
-    }
-
-    // City filter
-    if (selectedCity !== 'All Haryana') {
+    } else if (selectedCity !== 'All Haryana') {
+      // 2. City filter (when search query is empty)
       const c = selectedCity.toLowerCase();
       list = list.filter(
         (b) =>
           b.origin.toLowerCase().includes(c) ||
           b.destination.toLowerCase().includes(c) ||
-          b.route.toLowerCase().includes(c)
+          b.route.toLowerCase().includes(c) ||
+          (b.depot ? b.depot.toLowerCase().includes(c) : false) ||
+          b.stops.some((s) => s.name.toLowerCase().includes(c))
       );
     }
 
-    // Status filter (All, Live, Offline)
+    // 3. Status filter (All, Live, Offline)
     if (statusFilter === 'live') {
       list = list.filter((b) => b.status === 'LIVE');
     } else if (statusFilter === 'offline') {
       list = list.filter((b) => b.status !== 'LIVE');
     }
 
-    // Quick pill filter
+    // 4. Quick pill filter
     if (activePill === 'favorites') {
       list = list.filter((b) => favoriteIds.has(b.number));
     } else if (activePill === 'nearby' && userLocation) {
@@ -353,7 +423,14 @@ export default function PassengerHomeScreen({ navigation }: Props) {
     }
 
     return list;
-  }, [unifiedBuses, searchQuery, statusFilter, activePill, favoriteIds, userLocation]);
+  }, [unifiedBuses, searchQuery, selectedCity, statusFilter, activePill, favoriteIds, userLocation]);
+
+  // Paginated buses
+  const totalPages = Math.max(1, Math.ceil(filteredBuses.length / ITEMS_PER_PAGE));
+  const paginatedBuses = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredBuses.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredBuses, currentPage]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -734,9 +811,9 @@ export default function PassengerHomeScreen({ navigation }: Props) {
           </View>
         )}
 
-        {/* Buses List */}
+        {/* Buses List (Paginated) */}
         {!loading &&
-          filteredBuses.map((bus) => {
+          paginatedBuses.map((bus) => {
             const isFav = favoriteIds.has(bus.number);
             const isLive = bus.status === 'LIVE';
 
@@ -851,6 +928,38 @@ export default function PassengerHomeScreen({ navigation }: Props) {
               </TouchableOpacity>
             );
           })}
+
+        {/* Pagination Navigation Bar */}
+        {!loading && filteredBuses.length > ITEMS_PER_PAGE && (
+          <View style={styles.paginationContainer}>
+            <TouchableOpacity
+              style={[styles.pageNavBtn, currentPage === 1 && styles.pageNavBtnDisabled]}
+              disabled={currentPage === 1}
+              onPress={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              activeOpacity={0.7}
+            >
+              <Text style={[styles.pageNavBtnText, currentPage === 1 && styles.pageNavBtnTextDisabled]}>◀ Prev</Text>
+            </TouchableOpacity>
+
+            <View style={styles.pageIndicatorBox}>
+              <Text style={styles.pageIndicatorText}>
+                Page {currentPage} of {totalPages}
+              </Text>
+              <Text style={styles.pageIndicatorSubText}>
+                {filteredBuses.length} buses found
+              </Text>
+            </View>
+
+            <TouchableOpacity
+              style={[styles.pageNavBtn, currentPage === totalPages && styles.pageNavBtnDisabled]}
+              disabled={currentPage === totalPages}
+              onPress={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              activeOpacity={0.7}
+            >
+              <Text style={[styles.pageNavBtnText, currentPage === totalPages && styles.pageNavBtnTextDisabled]}>Next ▶</Text>
+            </TouchableOpacity>
+          </View>
+        )}
 
         {/* Intelligence / ML Information Banner */}
         <View style={styles.intelligenceCard}>
@@ -1567,5 +1676,48 @@ const styles = StyleSheet.create({
   cityChipTextActive: {
     color: '#FFFFFF',
     fontWeight: '700',
+  },
+
+  /* Pagination Controls */
+  paginationContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    padding: 12,
+    marginVertical: 12,
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+  },
+  pageNavBtn: {
+    backgroundColor: '#0F172A',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 12,
+  },
+  pageNavBtnDisabled: {
+    backgroundColor: '#E2E8F0',
+  },
+  pageNavBtnText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  pageNavBtnTextDisabled: {
+    color: '#94A3B8',
+  },
+  pageIndicatorBox: {
+    alignItems: 'center',
+  },
+  pageIndicatorText: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: '#0F172A',
+  },
+  pageIndicatorSubText: {
+    fontSize: 10,
+    color: '#64748B',
+    marginTop: 2,
   },
 });
