@@ -1,0 +1,5 @@
+
+trip_id,bus_id,route_id,boarding_stop_id,destination_stop_id,boarding_to_destination_km,average_speed_kmph,actual_journey_minutes
+TRIP001,BUS101,ROUTE01,STOP03,STOP05,9,30,20
+TRIP002,BUS102,ROUTE02,STOP08,STOP10,10,25,26
+TRIP003,BUS103,ROUTE01,STOP04,STOP05,5,35,10

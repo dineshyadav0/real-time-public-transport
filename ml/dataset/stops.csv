@@ -1,0 +1,12 @@
+
+stop_id,route_id,stop_name,distance_from_start_km
+STOP01,ROUTE01,Charkhi Dadri Bus Stand,0
+STOP02,ROUTE01,Stop A,3
+STOP03,ROUTE01,Stop B,6
+STOP04,ROUTE01,Stop C,10
+STOP05,ROUTE01,Stop D,15
+STOP06,ROUTE02,Charkhi Dadri Bus Stand,0
+STOP07,ROUTE02,Stop E,5
+STOP08,ROUTE02,Stop F,10
+STOP09,ROUTE02,Stop G,15
+STOP10,ROUTE02,Stop H,20
