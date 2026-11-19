@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Haryana Roadways WebSocket Test</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        #status {
+            font-weight: bold;
+        }
+
+        #messages {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f2f2f2;
+            min-height: 150px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Where Is My Haryana Roadways</h1>
+<h2>WebSocket Live GPS Test</h2>
+
+<p>
+    Status:
+    <span id="status">Disconnected</span>
+</p>
+
+<button onclick="connectWebSocket()">
+    Connect WebSocket
+</button>
+
+<button onclick="disconnectWebSocket()">
+    Disconnect
+</button>
+
+<div id="messages">
+Waiting for messages...
+</div>
+
+<script>
+
+let stompClient = null;
+
+function logMessage(message) {
+    const messages = document.getElementById("messages");
+    messages.textContent += "\n" + message;
+}
+
+function connectWebSocket() {
+
+    logMessage("🔄 Connecting...");
+
+    const socket = new SockJS(
+        "http://localhost:8081/ws"
+    );
+
+    stompClient = new StompJs.Client({
+
+        webSocketFactory: () => socket,
+
+        reconnectDelay: 0,
+
+        debug: function(message) {
+            console.log("[STOMP]", message);
+        },
+
+        onConnect: function() {
+
+            document.getElementById("status").textContent =
+                "CONNECTED";
+
+            logMessage("✅ WebSocket connected!");
+
+            stompClient.subscribe(
+                "/topic/trips/1",
+                function(message) {
+
+                    logMessage(
+                        "📍 LIVE GPS UPDATE:\n" +
+                        message.body
+                    );
+
+                    console.log(
+                        "GPS Update:",
+                        message.body
+                    );
+                }
+            );
+
+            logMessage(
+                "✅ Subscribed to /topic/trips/1"
+            );
+        },
+
+        onStompError: function(frame) {
+
+            document.getElementById("status").textContent =
+                "ERROR";
+
+            logMessage(
+                "❌ STOMP ERROR: " +
+                frame.headers["message"]
+            );
+
+            console.error(frame);
+        },
+
+        onWebSocketError: function(error) {
+
+            document.getElementById("status").textContent =
+                "ERROR";
+
+            logMessage(
+                "❌ WebSocket error"
+            );
+
+            console.error(error);
+        },
+
+        onWebSocketClose: function() {
+
+            logMessage(
+                "🔴 WebSocket connection closed"
+            );
+        }
+    });
+
+    stompClient.activate();
+}
+
+function disconnectWebSocket() {
+
+    if (stompClient) {
+
+        stompClient.deactivate();
+
+        document.getElementById("status").textContent =
+            "DISCONNECTED";
+
+        logMessage(
+            "🔴 WebSocket disconnected"
+        );
+    }
+}
+
+</script>
+
+</body>
+</html>

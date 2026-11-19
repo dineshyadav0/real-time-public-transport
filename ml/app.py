@@ -57,4 +57,12 @@ def health_check():
     return jsonify({'status': 'Flask ML Service is running!'})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    try:
+        app.run(host='0.0.0.0', port=port, debug=False)
+    except OSError as e:
+        if port == 5000 and ('Address already in use' in str(e) or getattr(e, 'errno', None) == 48):
+            print("Port 5000 is occupied (macOS AirPlay Receiver). Gracefully switching to port 5001...")
+            app.run(host='0.0.0.0', port=5001, debug=False)
+        else:
+            raise e

@@ -1,0 +1,2 @@
+routeNumber,depotName,source,destination,departureTime,arrivalTime,operatingDays,effectiveFrom,effectiveUntil,sourceUrl,verified
+HR-R01,Rohtak,Rohtak,Delhi,11:00,13:30,"MON,TUE,WED,THU,FRI,SAT",2026-11-06,2026-12-31,TEST DATA,false

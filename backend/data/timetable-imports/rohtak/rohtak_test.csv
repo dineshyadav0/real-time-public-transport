@@ -1,0 +1,3 @@
+﻿routeHeading,depot,source,destination,via,departureTime,serviceType,operator,serviceDays,sourcePage,sourceDocument
+Rohtak-Chandigarh,Rohtak,Rohtak,Chandigarh,Panipat,04:00,Ordinary,HR,ALL Days,1,rohtakdepot.pdf
+Rohtak-Chandigarh,Rohtak,Rohtak,Panchkula,Panipat,05:10,Ordinary,HR,ALL Days,1,rohtakdepot.pdf
