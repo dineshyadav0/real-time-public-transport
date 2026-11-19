@@ -1,4 +1,4 @@
-import { getApiBaseUrl } from '../config/api';
+import { getApiBaseUrl, getMlBaseUrl } from '../config/api';
 import {
   Bus,
   Route,
@@ -284,6 +284,42 @@ export const ApiService = {
       if (res.ok) {
         backendAvailable = true;
         return await res.json();
+      }
+    } catch (_) {}
+    return null;
+  },
+
+  /**
+   * Calls AI/ML ETA Prediction microservice on POST http://{host}:5000/predict-eta
+   */
+  async getPredictedEta(
+    distanceRemaining: number,
+    avgSpeed: number = 30,
+    stopsRemaining: number = 2
+  ): Promise<number | null> {
+    const url = `${getMlBaseUrl()}/predict-eta`;
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2000);
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          distance_remaining: distanceRemaining,
+          average_speed: avgSpeed,
+          stops_remaining: stopsRemaining,
+          traffic_level: 1,
+          hour: new Date().getHours(),
+          day_of_week: new Date().getDay(),
+        }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success && typeof data.estimated_eta_minutes === 'number') {
+          return data.estimated_eta_minutes;
+        }
       }
     } catch (_) {}
     return null;

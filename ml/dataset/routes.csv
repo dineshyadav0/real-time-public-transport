@@ -1,0 +1,4 @@
+
+route_id,route_name,start_location,end_location,total_distance_km
+ROUTE01,Charkhi Dadri Local Route,Charkhi Dadri Bus Stand,Stop D,15
+ROUTE02,Charkhi Dadri North Route,Charkhi Dadri Bus Stand,Stop H,20

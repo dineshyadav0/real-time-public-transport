@@ -1,0 +1,8 @@
+
+route_id,traffic_level,speed_factor,stop_wait_minutes
+ROUTE01,LOW,1.0,1
+ROUTE01,MEDIUM,0.85,2
+ROUTE01,HIGH,0.65,3
+ROUTE02,LOW,1.0,1
+ROUTE02,MEDIUM,0.85,2
+ROUTE02,HIGH,0.65,3

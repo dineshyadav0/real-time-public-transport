@@ -1,0 +1,5 @@
+
+bus_id,route_id,trip_id,distance_from_start_km,current_speed_kmph,timestamp
+BUS101,ROUTE01,TRIP001,4,30,2026-11-04 08:00:00
+BUS102,ROUTE02,TRIP002,7,25,2026-11-04 08:00:00
+BUS103,ROUTE01,TRIP003,8,35,2026-11-04 08:00:00

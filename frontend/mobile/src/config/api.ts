@@ -8,7 +8,10 @@ import Constants from 'expo-constants';
 // Default port configured on Spring Boot backend
 export const BACKEND_PORT = 8081;
 
-// Default fallback IP of the development workstation on local network
+// Default port for Python/Flask ML ETA microservice
+export const ML_PORT = 5000;
+
+// Default fallback IP of the development workstation on local Wi-Fi LAN
 export const DEFAULT_LAN_IP = '192.168.1.24';
 
 let customServerHost: string | null = null;
@@ -67,6 +70,11 @@ export function getSockJsUrl(): string {
   return `http://${host}:${BACKEND_PORT}/ws`;
 }
 
+export function getMlBaseUrl(): string {
+  const host = resolveServerHost();
+  return `http://${host}:${ML_PORT}`;
+}
+
 export const API_CONFIG = {
   get baseUrl() {
     return getApiBaseUrl();
@@ -77,6 +85,10 @@ export const API_CONFIG = {
   get sockJsUrl() {
     return getSockJsUrl();
   },
+  get mlUrl() {
+    return getMlBaseUrl();
+  },
   port: BACKEND_PORT,
+  mlPort: ML_PORT,
   defaultLanIp: DEFAULT_LAN_IP,
 };
