@@ -1,0 +1,4093 @@
+{
+  "state": "Haryana",
+  "stateHindi": "हरियाणा राज्य परिवहन",
+  "totalDepots": 24,
+  "districts": [
+    "Ambala",
+    "Bhiwani",
+    "Charkhi Dadri",
+    "Faridabad",
+    "Fatehabad",
+    "Gurugram",
+    "Hisar",
+    "Jhajjar",
+    "Jind",
+    "Kaithal",
+    "Karnal",
+    "Kurukshetra",
+    "Mahendragarh",
+    "Nuh",
+    "Palwal",
+    "Panchkula",
+    "Panipat",
+    "Rewari",
+    "Rohtak",
+    "Sirsa",
+    "Sonipat",
+    "Yamunanagar",
+    "Chandigarh",
+    "Delhi NCR"
+  ],
+  "stops": [
+    {
+      "id": "stop-amb-cantt",
+      "name": "Ambala Cantt General Bus Stand",
+      "nameHindi": "अंबाला छावनी सामान्य बस अड्डा",
+      "city": "Ambala",
+      "latitude": 30.342,
+      "longitude": 76.84,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-amb-city",
+      "name": "Ambala City Bus Stand",
+      "nameHindi": "अंबाला शहर बस स्टैंड",
+      "city": "Ambala",
+      "latitude": 30.378,
+      "longitude": 76.776,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-amb-naraingarh",
+      "name": "Naraingarh Bus Stand",
+      "nameHindi": "नारायणगढ़ बस स्टैंड",
+      "city": "Ambala",
+      "latitude": 30.481,
+      "longitude": 77.132,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-bhw-stand",
+      "name": "Bhiwani General Bus Stand",
+      "nameHindi": "भिवानी सामान्य बस अड्डा",
+      "city": "Bhiwani",
+      "latitude": 28.7885,
+      "longitude": 76.1365,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-bhw-tosham",
+      "name": "Tosham Bus Stand",
+      "nameHindi": "तोशाम बस स्टैंड",
+      "city": "Bhiwani",
+      "latitude": 28.874,
+      "longitude": 75.918,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-bhw-loharu",
+      "name": "Loharu Bus Stand",
+      "nameHindi": "लोहारू बस स्टैंड",
+      "city": "Bhiwani",
+      "latitude": 28.423,
+      "longitude": 75.812,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-kitlana",
+      "name": "Kitlana Toll & Crossing",
+      "nameHindi": "कितलाना टोल एवं रेलवे क्रॉसिंग",
+      "city": "Bhiwani",
+      "latitude": 28.685,
+      "longitude": 76.23,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-cd-bus-stand",
+      "name": "Charkhi Dadri Main Bus Stand",
+      "nameHindi": "चरखी दादरी मुख्य बस स्टैंड",
+      "city": "Charkhi Dadri",
+      "latitude": 28.5921,
+      "longitude": 76.2657,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-cd-loharu-chowk",
+      "name": "Loharu Chowk, Dadri",
+      "nameHindi": "लोहारू चौक, दादरी",
+      "city": "Charkhi Dadri",
+      "latitude": 28.5938,
+      "longitude": 76.2612,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-cd-bhiwani-chungi",
+      "name": "Bhiwani Chungi, Dadri",
+      "nameHindi": "भिवानी चुंगी, दादरी",
+      "city": "Charkhi Dadri",
+      "latitude": 28.608,
+      "longitude": 76.261,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-cd-badhra",
+      "name": "Badhra Bus Stand",
+      "nameHindi": "बाढड़ा बस स्टैंड",
+      "city": "Charkhi Dadri",
+      "latitude": 28.502,
+      "longitude": 76.082,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-fbd-nit",
+      "name": "Faridabad NIT Bus Stand",
+      "nameHindi": "फरीदाबाद एनआईटी बस स्टैंड",
+      "city": "Faridabad",
+      "latitude": 28.388,
+      "longitude": 77.305,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-ballabgarh",
+      "name": "Ballabgarh Raja Nahar Singh Terminal",
+      "nameHindi": "बल्लभगढ़ राजा नाहर सिंह बस टर्मिनल",
+      "city": "Faridabad",
+      "latitude": 28.3385,
+      "longitude": 77.3245,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-fbd-badarpur",
+      "name": "Badarpur Border Terminal",
+      "nameHindi": "बदरपुर बॉर्डर बस टर्मिनल",
+      "city": "Faridabad",
+      "latitude": 28.495,
+      "longitude": 77.301,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-fat-stand",
+      "name": "Fatehabad Bus Stand",
+      "nameHindi": "फतेहाबाद बस स्टैंड",
+      "city": "Fatehabad",
+      "latitude": 29.512,
+      "longitude": 75.452,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-fat-tohana",
+      "name": "Tohana Bus Stand",
+      "nameHindi": "टोहाना बस स्टैंड",
+      "city": "Fatehabad",
+      "latitude": 29.7042,
+      "longitude": 75.9015,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-fat-ratia",
+      "name": "Ratia Bus Stand",
+      "nameHindi": "रतिया बस स्टैंड",
+      "city": "Fatehabad",
+      "latitude": 29.682,
+      "longitude": 75.578,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-fat-bhuna",
+      "name": "Bhuna Bus Stop",
+      "nameHindi": "भूना बस स्टॉप",
+      "city": "Fatehabad",
+      "latitude": 29.531,
+      "longitude": 75.712,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-ggn-stand",
+      "name": "Gurugram General Bus Stand",
+      "nameHindi": "गुरुग्राम सामान्य बस अड्डा",
+      "city": "Gurugram",
+      "latitude": 28.461,
+      "longitude": 77.025,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-ggn-iffco",
+      "name": "IFFCO Chowk, Gurugram",
+      "nameHindi": "इफको चौक, गुरुग्राम",
+      "city": "Gurugram",
+      "latitude": 28.472,
+      "longitude": 77.0725,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-ggn-rajiv",
+      "name": "Rajiv Chowk, Gurugram",
+      "nameHindi": "राजीव चौक, गुरुग्राम",
+      "city": "Gurugram",
+      "latitude": 28.448,
+      "longitude": 77.035,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-ggn-manesar",
+      "name": "Manesar IMT Chowk",
+      "nameHindi": "मानेसर आईएमटी चौक",
+      "city": "Gurugram",
+      "latitude": 28.355,
+      "longitude": 76.94,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-ggn-sohna",
+      "name": "Sohna Bus Stand",
+      "nameHindi": "सोहना बस स्टैंड",
+      "city": "Gurugram",
+      "latitude": 28.248,
+      "longitude": 77.062,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-ggn-pataudi",
+      "name": "Pataudi Bus Stand",
+      "nameHindi": "पटौदी बस स्टैंड",
+      "city": "Gurugram",
+      "latitude": 28.324,
+      "longitude": 76.778,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-hsr-stand",
+      "name": "Hisar New Bus Stand",
+      "nameHindi": "हिसार नया बस अड्डा",
+      "city": "Hisar",
+      "latitude": 29.1539,
+      "longitude": 75.7229,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-hansi",
+      "name": "Hansi Bus Stand",
+      "nameHindi": "हांसी बस अड्डा",
+      "city": "Hisar",
+      "latitude": 29.102,
+      "longitude": 75.962,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-hsr-barwala",
+      "name": "Barwala Bus Stand",
+      "nameHindi": "बरवाला बस स्टैंड",
+      "city": "Hisar",
+      "latitude": 29.378,
+      "longitude": 75.912,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-hsr-agroha",
+      "name": "Agroha Dham Chowk",
+      "nameHindi": "अग्रोहा धाम चौक",
+      "city": "Hisar",
+      "latitude": 29.328,
+      "longitude": 75.615,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-jhj-stand",
+      "name": "Jhajjar Main Bus Stand",
+      "nameHindi": "झज्जर मुख्य बस स्टैंड",
+      "city": "Jhajjar",
+      "latitude": 28.608,
+      "longitude": 76.656,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-bahadurgarh",
+      "name": "Bahadurgarh Bus Stand",
+      "nameHindi": "बहादुरगढ़ बस स्टैंड",
+      "city": "Jhajjar",
+      "latitude": 28.692,
+      "longitude": 76.924,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-jhj-beri",
+      "name": "Beri Town Bus Stop",
+      "nameHindi": "बेरी कस्बा बस स्टॉप",
+      "city": "Jhajjar",
+      "latitude": 28.705,
+      "longitude": 76.582,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-jhj-badli",
+      "name": "Badli Chowk",
+      "nameHindi": "बादली चौक",
+      "city": "Jhajjar",
+      "latitude": 28.583,
+      "longitude": 76.812,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-jnd-stand",
+      "name": "Jind General Bus Stand",
+      "nameHindi": "जींद सामान्य बस अड्डा",
+      "city": "Jind",
+      "latitude": 29.316,
+      "longitude": 76.315,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-jnd-narwana",
+      "name": "Narwana Bus Stand",
+      "nameHindi": "नरवाना बस अड्डा",
+      "city": "Jind",
+      "latitude": 29.605,
+      "longitude": 76.115,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-jnd-safidon",
+      "name": "Safidon Bus Stand",
+      "nameHindi": "सफीदों बस स्टैंड",
+      "city": "Jind",
+      "latitude": 29.412,
+      "longitude": 76.668,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-jnd-julana",
+      "name": "Julana Bus Stop",
+      "nameHindi": "जुलाना बस स्टॉप",
+      "city": "Jind",
+      "latitude": 29.122,
+      "longitude": 76.395,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-kth-stand",
+      "name": "Kaithal New Bus Stand",
+      "nameHindi": "कैथल नया बस अड्डा",
+      "city": "Kaithal",
+      "latitude": 29.8015,
+      "longitude": 76.401,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-kth-cheeka",
+      "name": "Guhla Cheeka Bus Stand",
+      "nameHindi": "गुहला चीका बस स्टैंड",
+      "city": "Kaithal",
+      "latitude": 30.038,
+      "longitude": 76.302,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-kth-kalayat",
+      "name": "Kalayat Bus Stand",
+      "nameHindi": "कलायत बस स्टैंड",
+      "city": "Kaithal",
+      "latitude": 29.675,
+      "longitude": 76.255,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-kth-pundri",
+      "name": "Pundri Bus Stop",
+      "nameHindi": "पूंडरी बस स्टॉप",
+      "city": "Kaithal",
+      "latitude": 29.758,
+      "longitude": 76.561,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-krl-stand",
+      "name": "Karnal New Bus Stand",
+      "nameHindi": "करनाल नया बस अड्डा",
+      "city": "Karnal",
+      "latitude": 29.6857,
+      "longitude": 76.9905,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-krl-nirmal",
+      "name": "Nirmal Kutiya, Karnal",
+      "nameHindi": "निर्मल कुटिया, करनाल",
+      "city": "Karnal",
+      "latitude": 29.691,
+      "longitude": 76.985,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-gharaunda",
+      "name": "Gharaunda Stop",
+      "nameHindi": "घरौंडा स्टॉप",
+      "city": "Karnal",
+      "latitude": 29.54,
+      "longitude": 76.97,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-krl-assandh",
+      "name": "Assandh Bus Stand",
+      "nameHindi": "असंध बस स्टैंड",
+      "city": "Karnal",
+      "latitude": 29.521,
+      "longitude": 76.602,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-krl-taraori",
+      "name": "Taraori Stop",
+      "nameHindi": "तरावड़ी स्टॉप",
+      "city": "Karnal",
+      "latitude": 29.805,
+      "longitude": 76.928,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-krk-pipli",
+      "name": "Pipli Bus Stand (Kurukshetra)",
+      "nameHindi": "पिपली बस अड्डा (कुरुक्षेत्र)",
+      "city": "Kurukshetra",
+      "latitude": 29.972,
+      "longitude": 76.885,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-krk-stand",
+      "name": "Kurukshetra Thanesar Bus Stand",
+      "nameHindi": "कुरुक्षेत्र थानेसर बस अड्डा",
+      "city": "Kurukshetra",
+      "latitude": 29.969,
+      "longitude": 76.828,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-krk-uni",
+      "name": "Kurukshetra University 3rd Gate",
+      "nameHindi": "कुरुक्षेत्र विश्वविद्यालय",
+      "city": "Kurukshetra",
+      "latitude": 29.965,
+      "longitude": 76.818,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-krk-shahbad",
+      "name": "Shahbad Markanda Bus Stand",
+      "nameHindi": "शाहबाद मारकंडा बस स्टैंड",
+      "city": "Kurukshetra",
+      "latitude": 30.168,
+      "longitude": 76.872,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-krk-pehowa",
+      "name": "Pehowa Bus Stand",
+      "nameHindi": "पिहोवा बस स्टैंड",
+      "city": "Kurukshetra",
+      "latitude": 29.981,
+      "longitude": 76.582,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-mnd-narnaul",
+      "name": "Narnaul General Bus Stand",
+      "nameHindi": "नारनौल सामान्य बस अड्डा",
+      "city": "Mahendragarh",
+      "latitude": 28.0435,
+      "longitude": 76.107,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-mnd-stand",
+      "name": "Mahendragarh Main Bus Stand",
+      "nameHindi": "महेंद्रगढ़ मुख्य बस स्टैंड",
+      "city": "Mahendragarh",
+      "latitude": 28.275,
+      "longitude": 76.152,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-mnd-ateli",
+      "name": "Ateli Mandi Chowk",
+      "nameHindi": "अटेली मंडी चौक",
+      "city": "Mahendragarh",
+      "latitude": 28.102,
+      "longitude": 76.261,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-mnd-kanina",
+      "name": "Kanina Khas Bus Stand",
+      "nameHindi": "कनीना खास बस स्टैंड",
+      "city": "Mahendragarh",
+      "latitude": 28.324,
+      "longitude": 76.315,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-nuh-stand",
+      "name": "Nuh Main Bus Stand",
+      "nameHindi": "नूहं मुख्य बस स्टैंड",
+      "city": "Nuh",
+      "latitude": 28.112,
+      "longitude": 77.015,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-nuh-taoru",
+      "name": "Taoru Bus Stand",
+      "nameHindi": "तावडू बस स्टैंड",
+      "city": "Nuh",
+      "latitude": 28.215,
+      "longitude": 76.952,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-nuh-ferozepur",
+      "name": "Ferozepur Jhirka Bus Stand",
+      "nameHindi": "फिरोजपुर झिरका बस स्टैंड",
+      "city": "Nuh",
+      "latitude": 27.795,
+      "longitude": 76.948,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-nuh-punhana",
+      "name": "Punhana Bus Stop",
+      "nameHindi": "पुन्हाना बस स्टॉप",
+      "city": "Nuh",
+      "latitude": 27.868,
+      "longitude": 77.202,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-pal-stand",
+      "name": "Palwal Main Bus Stand",
+      "nameHindi": "पलवल मुख्य बस स्टैंड",
+      "city": "Palwal",
+      "latitude": 28.144,
+      "longitude": 77.328,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-pal-hodal",
+      "name": "Hodal Bus Stand",
+      "nameHindi": "होडल बस स्टैंड",
+      "city": "Palwal",
+      "latitude": 27.895,
+      "longitude": 77.371,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-pal-hathin",
+      "name": "Hathin Bus Stand",
+      "nameHindi": "हथीन बस स्टैंड",
+      "city": "Palwal",
+      "latitude": 28.052,
+      "longitude": 77.241,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-pkl-sec5",
+      "name": "Panchkula Sector 5 Terminal",
+      "nameHindi": "पंचकूला सेक्टर 5 बस टर्मिनल",
+      "city": "Panchkula",
+      "latitude": 30.6942,
+      "longitude": 76.8606,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-pkl-pinjore",
+      "name": "Pinjore Bus Stand",
+      "nameHindi": "पिंजौर बस स्टैंड",
+      "city": "Panchkula",
+      "latitude": 30.796,
+      "longitude": 76.915,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-pkl-kalka",
+      "name": "Kalka Railway Station Stop",
+      "nameHindi": "कालका रेलवे स्टेशन बस स्टॉप",
+      "city": "Panchkula",
+      "latitude": 30.835,
+      "longitude": 76.936,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-pan-stand",
+      "name": "Panipat General Bus Stand",
+      "nameHindi": "पानीपत सामान्य बस अड्डा",
+      "city": "Panipat",
+      "latitude": 29.3909,
+      "longitude": 76.9635,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-pan-toll",
+      "name": "Panipat Toll Plaza GT Road",
+      "nameHindi": "पानीपत टोल प्लाजा (जी.टी. रोड)",
+      "city": "Panipat",
+      "latitude": 29.42,
+      "longitude": 76.975,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-samalkha",
+      "name": "Samalkha Stop",
+      "nameHindi": "समालखा",
+      "city": "Panipat",
+      "latitude": 29.23,
+      "longitude": 77.01,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-pan-israna",
+      "name": "Israna Bus Stand",
+      "nameHindi": "इसराना बस स्टैंड",
+      "city": "Panipat",
+      "latitude": 29.278,
+      "longitude": 76.845,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-rew-stand",
+      "name": "Rewari General Bus Stand",
+      "nameHindi": "रेवाड़ी सामान्य बस अड्डा",
+      "city": "Rewari",
+      "latitude": 28.183,
+      "longitude": 76.618,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-dharuhera",
+      "name": "Dharuhera Bus Stop",
+      "nameHindi": "धारूहेड़ा बस स्टॉप",
+      "city": "Rewari",
+      "latitude": 28.205,
+      "longitude": 76.792,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-bawal",
+      "name": "Bawal IMT Chowk",
+      "nameHindi": "बावल आईएमटी चौक",
+      "city": "Rewari",
+      "latitude": 28.082,
+      "longitude": 76.582,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-rew-kosli",
+      "name": "Kosli Bus Stand",
+      "nameHindi": "कोसली बस स्टैंड",
+      "city": "Rewari",
+      "latitude": 28.411,
+      "longitude": 76.482,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-rtk-stand",
+      "name": "Rohtak New Bus Stand",
+      "nameHindi": "रोहतक नया बस अड्डा",
+      "city": "Rohtak",
+      "latitude": 28.8955,
+      "longitude": 76.6066,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-rtk-mdu",
+      "name": "MDU Gate, Rohtak",
+      "nameHindi": "एमडीयू गेट, रोहतक",
+      "city": "Rohtak",
+      "latitude": 28.882,
+      "longitude": 76.618,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-sampla",
+      "name": "Sampla Chowk",
+      "nameHindi": "सांपला चौक",
+      "city": "Rohtak",
+      "latitude": 28.775,
+      "longitude": 76.772,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-kalanaur",
+      "name": "Kalanaur Town Stop",
+      "nameHindi": "कलानौर कस्बा",
+      "city": "Rohtak",
+      "latitude": 28.825,
+      "longitude": 76.402,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-meham",
+      "name": "Meham Chowk",
+      "nameHindi": "महम चौक",
+      "city": "Rohtak",
+      "latitude": 28.965,
+      "longitude": 76.295,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-sir-stand",
+      "name": "Sirsa General Bus Stand",
+      "nameHindi": "सिरसा सामान्य बस अड्डा",
+      "city": "Sirsa",
+      "latitude": 29.534,
+      "longitude": 75.032,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-sir-dabwali",
+      "name": "Mandi Dabwali Bus Stand",
+      "nameHindi": "मंडी डबवाली बस स्टैंड",
+      "city": "Sirsa",
+      "latitude": 29.957,
+      "longitude": 74.721,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-sir-ellenabad",
+      "name": "Ellenabad Bus Stand",
+      "nameHindi": "ऐलनाबाद बस स्टैंड",
+      "city": "Sirsa",
+      "latitude": 29.452,
+      "longitude": 74.658,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-sir-rania",
+      "name": "Rania Bus Stop",
+      "nameHindi": "रानियां बस स्टॉप",
+      "city": "Sirsa",
+      "latitude": 29.525,
+      "longitude": 74.835,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-snp-stand",
+      "name": "Sonipat New Bus Stand",
+      "nameHindi": "सोनीपत नया बस अड्डा",
+      "city": "Sonipat",
+      "latitude": 28.995,
+      "longitude": 77.012,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-murthal",
+      "name": "Murthal Dhabas GT Road",
+      "nameHindi": "मुरथल जी.टी. रोड",
+      "city": "Sonipat",
+      "latitude": 29.025,
+      "longitude": 77.07,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-snp-gohana",
+      "name": "Gohana Bus Stand",
+      "nameHindi": "गोहाना बस स्टैंड",
+      "city": "Sonipat",
+      "latitude": 29.135,
+      "longitude": 76.702,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-snp-ganaur",
+      "name": "Ganaur Stop",
+      "nameHindi": "गन्नौर स्टॉप",
+      "city": "Sonipat",
+      "latitude": 29.132,
+      "longitude": 77.021,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-snp-kundli",
+      "name": "Kundli Border Terminal",
+      "nameHindi": "कुंडली बॉर्डर बस टर्मिनल",
+      "city": "Sonipat",
+      "latitude": 28.878,
+      "longitude": 77.121,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-ymn-stand",
+      "name": "Yamunanagar Bus Stand",
+      "nameHindi": "यमुनानगर बस स्टैंड",
+      "city": "Yamunanagar",
+      "latitude": 30.129,
+      "longitude": 77.267,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-ymn-jagadhri",
+      "name": "Jagadhri Workshop Bus Stand",
+      "nameHindi": "जगाधरी वर्कशॉप बस स्टैंड",
+      "city": "Yamunanagar",
+      "latitude": 30.172,
+      "longitude": 77.301,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-ymn-radaur",
+      "name": "Radaur Bus Stand",
+      "nameHindi": "रादौर बस स्टैंड",
+      "city": "Yamunanagar",
+      "latitude": 30.028,
+      "longitude": 77.155,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-ymn-bilaspur",
+      "name": "Bilaspur Stop",
+      "nameHindi": "बिलासपुर स्टॉप",
+      "city": "Yamunanagar",
+      "latitude": 30.302,
+      "longitude": 77.322,
+      "isDepot": false,
+      "isMajorJunction": false
+    },
+    {
+      "id": "stop-chd-17",
+      "name": "Chandigarh ISBT Sector 17",
+      "nameHindi": "चंडीगढ़ आईएसबीटी सेक्टर 17",
+      "city": "Chandigarh",
+      "latitude": 30.7398,
+      "longitude": 76.7827,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-chd-43",
+      "name": "Chandigarh ISBT Sector 43",
+      "nameHindi": "चंडीगढ़ आईएसबीटी सेक्टर 43",
+      "city": "Chandigarh",
+      "latitude": 30.716,
+      "longitude": 76.745,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-zirakpur",
+      "name": "Zirakpur Flyover Junction",
+      "nameHindi": "जीरकपुर फ्लाईओवर जंक्शन",
+      "city": "Chandigarh",
+      "latitude": 30.642,
+      "longitude": 76.818,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-del-isbt-kg",
+      "name": "Delhi Kashmere Gate ISBT",
+      "nameHindi": "कश्मीरी गेट आईएसबीटी, दिल्ली",
+      "city": "Delhi NCR",
+      "latitude": 28.6675,
+      "longitude": 77.2285,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-del-dhaula-kuan",
+      "name": "Dhaula Kuan, Delhi",
+      "nameHindi": "धौला कुआँ, दिल्ली",
+      "city": "Delhi NCR",
+      "latitude": 28.592,
+      "longitude": 77.161,
+      "isDepot": false,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-del-skk",
+      "name": "Sarai Kale Khan ISBT, Delhi",
+      "nameHindi": "सराय काले खां आईएसबीटी, दिल्ली",
+      "city": "Delhi NCR",
+      "latitude": 28.589,
+      "longitude": 77.256,
+      "isDepot": true,
+      "isMajorJunction": true
+    },
+    {
+      "id": "stop-del-anand-vihar",
+      "name": "Anand Vihar ISBT, Delhi",
+      "nameHindi": "आनंद विहार आईएसबीटी, दिल्ली",
+      "city": "Delhi NCR",
+      "latitude": 28.648,
+      "longitude": 77.315,
+      "isDepot": true,
+      "isMajorJunction": true
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-ggn-chd-01",
+      "routeCode": "HR-VOLVO-01",
+      "name": "Gurugram ➔ Chandigarh ISBT (via Panipat, Karnal, Ambala)",
+      "nameHindi": "गुरुग्राम ➔ चंडीगढ़ (वाया पानीपत, करनाल, अंबाला)",
+      "origin": "Gurugram General Bus Stand",
+      "destination": "Chandigarh ISBT Sector 17",
+      "distanceKm": 278.0,
+      "estimatedDurationMinutes": 310,
+      "majorCities": [
+        "Gurugram",
+        "Delhi NCR",
+        "Sonipat",
+        "Panipat",
+        "Karnal",
+        "Kurukshetra",
+        "Ambala",
+        "Chandigarh"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-ggn-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-ggn-iffco",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 27.8,
+          "scheduledOffsetMinutes": 31
+        },
+        {
+          "stopId": "stop-del-dhaula-kuan",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 55.6,
+          "scheduledOffsetMinutes": 62
+        },
+        {
+          "stopId": "stop-del-isbt-kg",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 83.4,
+          "scheduledOffsetMinutes": 93
+        },
+        {
+          "stopId": "stop-murthal",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 111.2,
+          "scheduledOffsetMinutes": 124
+        },
+        {
+          "stopId": "stop-pan-stand",
+          "sequenceOrder": 6,
+          "distanceFromStartKm": 139.0,
+          "scheduledOffsetMinutes": 155
+        },
+        {
+          "stopId": "stop-krl-stand",
+          "sequenceOrder": 7,
+          "distanceFromStartKm": 166.8,
+          "scheduledOffsetMinutes": 186
+        },
+        {
+          "stopId": "stop-krk-pipli",
+          "sequenceOrder": 8,
+          "distanceFromStartKm": 194.6,
+          "scheduledOffsetMinutes": 217
+        },
+        {
+          "stopId": "stop-amb-cantt",
+          "sequenceOrder": 9,
+          "distanceFromStartKm": 222.4,
+          "scheduledOffsetMinutes": 248
+        },
+        {
+          "stopId": "stop-zirakpur",
+          "sequenceOrder": 10,
+          "distanceFromStartKm": 250.2,
+          "scheduledOffsetMinutes": 279
+        },
+        {
+          "stopId": "stop-chd-17",
+          "sequenceOrder": 11,
+          "distanceFromStartKm": 278.0,
+          "scheduledOffsetMinutes": 310
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.461,
+          "longitude": 77.025
+        },
+        {
+          "latitude": 28.472,
+          "longitude": 77.0725
+        },
+        {
+          "latitude": 28.592,
+          "longitude": 77.161
+        },
+        {
+          "latitude": 28.6675,
+          "longitude": 77.2285
+        },
+        {
+          "latitude": 29.025,
+          "longitude": 77.07
+        },
+        {
+          "latitude": 29.3909,
+          "longitude": 76.9635
+        },
+        {
+          "latitude": 29.6857,
+          "longitude": 76.9905
+        },
+        {
+          "latitude": 29.972,
+          "longitude": 76.885
+        },
+        {
+          "latitude": 30.342,
+          "longitude": 76.84
+        },
+        {
+          "latitude": 30.642,
+          "longitude": 76.818
+        },
+        {
+          "latitude": 30.7398,
+          "longitude": 76.7827
+        }
+      ]
+    },
+    {
+      "id": "route-rtk-del-02",
+      "routeCode": "HR-ORD-02",
+      "name": "Rohtak Bus Stand ➔ Delhi Kashmere Gate ISBT",
+      "nameHindi": "रोहतक बस स्टैंड ➔ दिल्ली कश्मीरी गेट आईएसबीटी",
+      "origin": "Rohtak New Bus Stand",
+      "destination": "Delhi Kashmere Gate ISBT",
+      "distanceKm": 72.5,
+      "estimatedDurationMinutes": 105,
+      "majorCities": [
+        "Rohtak",
+        "Jhajjar",
+        "Delhi NCR"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-rtk-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-rtk-mdu",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 18.1,
+          "scheduledOffsetMinutes": 26
+        },
+        {
+          "stopId": "stop-sampla",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 36.2,
+          "scheduledOffsetMinutes": 52
+        },
+        {
+          "stopId": "stop-bahadurgarh",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 54.4,
+          "scheduledOffsetMinutes": 79
+        },
+        {
+          "stopId": "stop-del-isbt-kg",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 72.5,
+          "scheduledOffsetMinutes": 105
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.8955,
+          "longitude": 76.6066
+        },
+        {
+          "latitude": 28.882,
+          "longitude": 76.618
+        },
+        {
+          "latitude": 28.775,
+          "longitude": 76.772
+        },
+        {
+          "latitude": 28.692,
+          "longitude": 76.924
+        },
+        {
+          "latitude": 28.6675,
+          "longitude": 77.2285
+        }
+      ]
+    },
+    {
+      "id": "route-hsr-del-03",
+      "routeCode": "HR-EXP-03",
+      "name": "Hisar New Bus Stand ➔ Delhi ISBT (via Hansi, Rohtak)",
+      "nameHindi": "हिसार नया बस अड्डा ➔ दिल्ली (वाया हांसी, रोहतक)",
+      "origin": "Hisar New Bus Stand",
+      "destination": "Delhi Kashmere Gate ISBT",
+      "distanceKm": 168.0,
+      "estimatedDurationMinutes": 220,
+      "majorCities": [
+        "Hisar",
+        "Rohtak",
+        "Jhajjar",
+        "Delhi NCR"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-hsr-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-hansi",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 33.6,
+          "scheduledOffsetMinutes": 44
+        },
+        {
+          "stopId": "stop-meham",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 67.2,
+          "scheduledOffsetMinutes": 88
+        },
+        {
+          "stopId": "stop-rtk-stand",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 100.8,
+          "scheduledOffsetMinutes": 132
+        },
+        {
+          "stopId": "stop-bahadurgarh",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 134.4,
+          "scheduledOffsetMinutes": 176
+        },
+        {
+          "stopId": "stop-del-isbt-kg",
+          "sequenceOrder": 6,
+          "distanceFromStartKm": 168.0,
+          "scheduledOffsetMinutes": 220
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 29.1539,
+          "longitude": 75.7229
+        },
+        {
+          "latitude": 29.102,
+          "longitude": 75.962
+        },
+        {
+          "latitude": 28.965,
+          "longitude": 76.295
+        },
+        {
+          "latitude": 28.8955,
+          "longitude": 76.6066
+        },
+        {
+          "latitude": 28.692,
+          "longitude": 76.924
+        },
+        {
+          "latitude": 28.6675,
+          "longitude": 77.2285
+        }
+      ]
+    },
+    {
+      "id": "route-bhw-rtk-04",
+      "routeCode": "HR-ORD-04",
+      "name": "Bhiwani General Bus Stand ➔ Rohtak New Bus Stand",
+      "nameHindi": "भिवानी सामान्य बस अड्डा ➔ रोहतक नया बस अड्डा",
+      "origin": "Bhiwani General Bus Stand",
+      "destination": "Rohtak New Bus Stand",
+      "distanceKm": 48.0,
+      "estimatedDurationMinutes": 75,
+      "majorCities": [
+        "Bhiwani",
+        "Rohtak"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-bhw-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-kitlana",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 16.0,
+          "scheduledOffsetMinutes": 25
+        },
+        {
+          "stopId": "stop-kalanaur",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 32.0,
+          "scheduledOffsetMinutes": 50
+        },
+        {
+          "stopId": "stop-rtk-stand",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 48.0,
+          "scheduledOffsetMinutes": 75
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.7885,
+          "longitude": 76.1365
+        },
+        {
+          "latitude": 28.685,
+          "longitude": 76.23
+        },
+        {
+          "latitude": 28.825,
+          "longitude": 76.402
+        },
+        {
+          "latitude": 28.8955,
+          "longitude": 76.6066
+        }
+      ]
+    },
+    {
+      "id": "route-cd-bhw-05",
+      "routeCode": "HR-ORD-05",
+      "name": "Charkhi Dadri Bus Stand ➔ Bhiwani Bus Stand",
+      "nameHindi": "चरखी दादरी मुख्य बस स्टैंड ➔ भिवानी बस स्टैंड",
+      "origin": "Charkhi Dadri Main Bus Stand",
+      "destination": "Bhiwani General Bus Stand",
+      "distanceKm": 31.0,
+      "estimatedDurationMinutes": 50,
+      "majorCities": [
+        "Charkhi Dadri",
+        "Bhiwani"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-cd-bus-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-cd-bhiwani-chungi",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 10.3,
+          "scheduledOffsetMinutes": 17
+        },
+        {
+          "stopId": "stop-kitlana",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 20.7,
+          "scheduledOffsetMinutes": 33
+        },
+        {
+          "stopId": "stop-bhw-stand",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 31.0,
+          "scheduledOffsetMinutes": 50
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.5921,
+          "longitude": 76.2657
+        },
+        {
+          "latitude": 28.608,
+          "longitude": 76.261
+        },
+        {
+          "latitude": 28.685,
+          "longitude": 76.23
+        },
+        {
+          "latitude": 28.7885,
+          "longitude": 76.1365
+        }
+      ]
+    },
+    {
+      "id": "route-pan-amb-06",
+      "routeCode": "HR-EXP-06",
+      "name": "Panipat Bus Stand ➔ Ambala Cantt (via Karnal, Kurukshetra)",
+      "nameHindi": "पानीपत ➔ अंबाला छावनी (वाया करनाल, कुरुक्षेत्र)",
+      "origin": "Panipat General Bus Stand",
+      "destination": "Ambala Cantt General Bus Stand",
+      "distanceKm": 115.0,
+      "estimatedDurationMinutes": 140,
+      "majorCities": [
+        "Panipat",
+        "Karnal",
+        "Kurukshetra",
+        "Ambala"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-pan-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-pan-toll",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 16.4,
+          "scheduledOffsetMinutes": 20
+        },
+        {
+          "stopId": "stop-gharaunda",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 32.9,
+          "scheduledOffsetMinutes": 40
+        },
+        {
+          "stopId": "stop-krl-stand",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 49.3,
+          "scheduledOffsetMinutes": 60
+        },
+        {
+          "stopId": "stop-krl-taraori",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 65.7,
+          "scheduledOffsetMinutes": 80
+        },
+        {
+          "stopId": "stop-krk-pipli",
+          "sequenceOrder": 6,
+          "distanceFromStartKm": 82.1,
+          "scheduledOffsetMinutes": 100
+        },
+        {
+          "stopId": "stop-krk-shahbad",
+          "sequenceOrder": 7,
+          "distanceFromStartKm": 98.6,
+          "scheduledOffsetMinutes": 120
+        },
+        {
+          "stopId": "stop-amb-cantt",
+          "sequenceOrder": 8,
+          "distanceFromStartKm": 115.0,
+          "scheduledOffsetMinutes": 140
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 29.3909,
+          "longitude": 76.9635
+        },
+        {
+          "latitude": 29.42,
+          "longitude": 76.975
+        },
+        {
+          "latitude": 29.54,
+          "longitude": 76.97
+        },
+        {
+          "latitude": 29.6857,
+          "longitude": 76.9905
+        },
+        {
+          "latitude": 29.805,
+          "longitude": 76.928
+        },
+        {
+          "latitude": 29.972,
+          "longitude": 76.885
+        },
+        {
+          "latitude": 30.168,
+          "longitude": 76.872
+        },
+        {
+          "latitude": 30.342,
+          "longitude": 76.84
+        }
+      ]
+    },
+    {
+      "id": "route-rew-ggn-07",
+      "routeCode": "HR-ORD-07",
+      "name": "Rewari Bus Stand ➔ Gurugram IFFCO Chowk (via Dharuhera, Manesar)",
+      "nameHindi": "रेवाड़ी ➔ गुरुग्राम (वाया धारूहेड़ा, मानेसर)",
+      "origin": "Rewari General Bus Stand",
+      "destination": "Gurugram General Bus Stand",
+      "distanceKm": 52.0,
+      "estimatedDurationMinutes": 75,
+      "majorCities": [
+        "Rewari",
+        "Gurugram"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-rew-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-dharuhera",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 10.4,
+          "scheduledOffsetMinutes": 15
+        },
+        {
+          "stopId": "stop-ggn-manesar",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 20.8,
+          "scheduledOffsetMinutes": 30
+        },
+        {
+          "stopId": "stop-ggn-rajiv",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 31.2,
+          "scheduledOffsetMinutes": 45
+        },
+        {
+          "stopId": "stop-ggn-stand",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 41.6,
+          "scheduledOffsetMinutes": 60
+        },
+        {
+          "stopId": "stop-ggn-iffco",
+          "sequenceOrder": 6,
+          "distanceFromStartKm": 52.0,
+          "scheduledOffsetMinutes": 75
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.183,
+          "longitude": 76.618
+        },
+        {
+          "latitude": 28.205,
+          "longitude": 76.792
+        },
+        {
+          "latitude": 28.355,
+          "longitude": 76.94
+        },
+        {
+          "latitude": 28.448,
+          "longitude": 77.035
+        },
+        {
+          "latitude": 28.461,
+          "longitude": 77.025
+        },
+        {
+          "latitude": 28.472,
+          "longitude": 77.0725
+        }
+      ]
+    },
+    {
+      "id": "route-fbd-del-08",
+      "routeCode": "HR-EXP-08",
+      "name": "Faridabad NIT ➔ Delhi Sarai Kale Khan ISBT",
+      "nameHindi": "फरीदाबाद एनआईटी ➔ दिल्ली सराय काले खां",
+      "origin": "Faridabad NIT Bus Stand",
+      "destination": "Sarai Kale Khan ISBT, Delhi",
+      "distanceKm": 34.0,
+      "estimatedDurationMinutes": 60,
+      "majorCities": [
+        "Faridabad",
+        "Delhi NCR"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-ballabgarh",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-fbd-nit",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 11.3,
+          "scheduledOffsetMinutes": 20
+        },
+        {
+          "stopId": "stop-fbd-badarpur",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 22.7,
+          "scheduledOffsetMinutes": 40
+        },
+        {
+          "stopId": "stop-del-skk",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 34.0,
+          "scheduledOffsetMinutes": 60
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.3385,
+          "longitude": 77.3245
+        },
+        {
+          "latitude": 28.388,
+          "longitude": 77.305
+        },
+        {
+          "latitude": 28.495,
+          "longitude": 77.301
+        },
+        {
+          "latitude": 28.589,
+          "longitude": 77.256
+        }
+      ]
+    },
+    {
+      "id": "route-amb-chd-09",
+      "routeCode": "HR-EXP-09",
+      "name": "Ambala Cantt ➔ Chandigarh ISBT Sector 17 (via Zirakpur)",
+      "nameHindi": "अंबाला छावनी ➔ चंडीगढ़ आईएसबीटी 17",
+      "origin": "Ambala Cantt General Bus Stand",
+      "destination": "Chandigarh ISBT Sector 17",
+      "distanceKm": 46.0,
+      "estimatedDurationMinutes": 65,
+      "majorCities": [
+        "Ambala",
+        "Chandigarh"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-amb-cantt",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-amb-city",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 15.3,
+          "scheduledOffsetMinutes": 22
+        },
+        {
+          "stopId": "stop-zirakpur",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 30.7,
+          "scheduledOffsetMinutes": 43
+        },
+        {
+          "stopId": "stop-chd-17",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 46.0,
+          "scheduledOffsetMinutes": 65
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 30.342,
+          "longitude": 76.84
+        },
+        {
+          "latitude": 30.378,
+          "longitude": 76.776
+        },
+        {
+          "latitude": 30.642,
+          "longitude": 76.818
+        },
+        {
+          "latitude": 30.7398,
+          "longitude": 76.7827
+        }
+      ]
+    },
+    {
+      "id": "route-sir-hsr-10",
+      "routeCode": "HR-EXP-10",
+      "name": "Sirsa Bus Stand ➔ Hisar Bus Stand (via Fatehabad, Agroha)",
+      "nameHindi": "सिरसा ➔ हिसार (वाया फतेहाबाद, अग्रोहा)",
+      "origin": "Sirsa General Bus Stand",
+      "destination": "Hisar New Bus Stand",
+      "distanceKm": 88.0,
+      "estimatedDurationMinutes": 115,
+      "majorCities": [
+        "Sirsa",
+        "Fatehabad",
+        "Hisar"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-sir-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-fat-stand",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 29.3,
+          "scheduledOffsetMinutes": 38
+        },
+        {
+          "stopId": "stop-hsr-agroha",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 58.7,
+          "scheduledOffsetMinutes": 77
+        },
+        {
+          "stopId": "stop-hsr-stand",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 88.0,
+          "scheduledOffsetMinutes": 115
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 29.534,
+          "longitude": 75.032
+        },
+        {
+          "latitude": 29.512,
+          "longitude": 75.452
+        },
+        {
+          "latitude": 29.328,
+          "longitude": 75.615
+        },
+        {
+          "latitude": 29.1539,
+          "longitude": 75.7229
+        }
+      ]
+    },
+    {
+      "id": "route-jnd-chd-11",
+      "routeCode": "HR-EXP-11",
+      "name": "Jind General Bus Stand ➔ Chandigarh ISBT (via Kaithal, Pehowa, Ambala)",
+      "nameHindi": "जींद ➔ चंडीगढ़ (वाया कैथल, पिहोवा, अंबाला)",
+      "origin": "Jind General Bus Stand",
+      "destination": "Chandigarh ISBT Sector 17",
+      "distanceKm": 165.0,
+      "estimatedDurationMinutes": 210,
+      "majorCities": [
+        "Jind",
+        "Kaithal",
+        "Kurukshetra",
+        "Ambala",
+        "Chandigarh"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-jnd-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-jnd-narwana",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 27.5,
+          "scheduledOffsetMinutes": 35
+        },
+        {
+          "stopId": "stop-kth-stand",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 55.0,
+          "scheduledOffsetMinutes": 70
+        },
+        {
+          "stopId": "stop-krk-pehowa",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 82.5,
+          "scheduledOffsetMinutes": 105
+        },
+        {
+          "stopId": "stop-amb-city",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 110.0,
+          "scheduledOffsetMinutes": 140
+        },
+        {
+          "stopId": "stop-zirakpur",
+          "sequenceOrder": 6,
+          "distanceFromStartKm": 137.5,
+          "scheduledOffsetMinutes": 175
+        },
+        {
+          "stopId": "stop-chd-17",
+          "sequenceOrder": 7,
+          "distanceFromStartKm": 165.0,
+          "scheduledOffsetMinutes": 210
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 29.316,
+          "longitude": 76.315
+        },
+        {
+          "latitude": 29.605,
+          "longitude": 76.115
+        },
+        {
+          "latitude": 29.8015,
+          "longitude": 76.401
+        },
+        {
+          "latitude": 29.981,
+          "longitude": 76.582
+        },
+        {
+          "latitude": 30.378,
+          "longitude": 76.776
+        },
+        {
+          "latitude": 30.642,
+          "longitude": 76.818
+        },
+        {
+          "latitude": 30.7398,
+          "longitude": 76.7827
+        }
+      ]
+    },
+    {
+      "id": "route-kth-krl-12",
+      "routeCode": "HR-ORD-12",
+      "name": "Kaithal New Bus Stand ➔ Karnal New Bus Stand (via Pundri)",
+      "nameHindi": "कैथल ➔ करनाल (वाया पूंडरी, निसिंग)",
+      "origin": "Kaithal New Bus Stand",
+      "destination": "Karnal New Bus Stand",
+      "distanceKm": 62.0,
+      "estimatedDurationMinutes": 85,
+      "majorCities": [
+        "Kaithal",
+        "Karnal"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-kth-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-kth-pundri",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 20.7,
+          "scheduledOffsetMinutes": 28
+        },
+        {
+          "stopId": "stop-krl-nirmal",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 41.3,
+          "scheduledOffsetMinutes": 57
+        },
+        {
+          "stopId": "stop-krl-stand",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 62.0,
+          "scheduledOffsetMinutes": 85
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 29.8015,
+          "longitude": 76.401
+        },
+        {
+          "latitude": 29.758,
+          "longitude": 76.561
+        },
+        {
+          "latitude": 29.691,
+          "longitude": 76.985
+        },
+        {
+          "latitude": 29.6857,
+          "longitude": 76.9905
+        }
+      ]
+    },
+    {
+      "id": "route-krl-ymn-13",
+      "routeCode": "HR-ORD-13",
+      "name": "Karnal Bus Stand ➔ Yamunanagar (via Radaur, Jagadhri)",
+      "nameHindi": "करनाल ➔ यमुनानगर (वाया रादौर, जगाधरी)",
+      "origin": "Karnal New Bus Stand",
+      "destination": "Yamunanagar Bus Stand",
+      "distanceKm": 68.0,
+      "estimatedDurationMinutes": 95,
+      "majorCities": [
+        "Karnal",
+        "Yamunanagar"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-krl-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-krl-taraori",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 17.0,
+          "scheduledOffsetMinutes": 24
+        },
+        {
+          "stopId": "stop-ymn-radaur",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 34.0,
+          "scheduledOffsetMinutes": 48
+        },
+        {
+          "stopId": "stop-ymn-jagadhri",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 51.0,
+          "scheduledOffsetMinutes": 71
+        },
+        {
+          "stopId": "stop-ymn-stand",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 68.0,
+          "scheduledOffsetMinutes": 95
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 29.6857,
+          "longitude": 76.9905
+        },
+        {
+          "latitude": 29.805,
+          "longitude": 76.928
+        },
+        {
+          "latitude": 30.028,
+          "longitude": 77.155
+        },
+        {
+          "latitude": 30.172,
+          "longitude": 77.301
+        },
+        {
+          "latitude": 30.129,
+          "longitude": 77.267
+        }
+      ]
+    },
+    {
+      "id": "route-ymn-chd-14",
+      "routeCode": "HR-EXP-14",
+      "name": "Yamunanagar ➔ Chandigarh ISBT (via Ambala, Zirakpur)",
+      "nameHindi": "यमुनानगर ➔ चंडीगढ़ (वाया अंबाला, जीरकपुर)",
+      "origin": "Yamunanagar Bus Stand",
+      "destination": "Chandigarh ISBT Sector 17",
+      "distanceKm": 105.0,
+      "estimatedDurationMinutes": 135,
+      "majorCities": [
+        "Yamunanagar",
+        "Ambala",
+        "Chandigarh"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-ymn-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-ymn-jagadhri",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 26.2,
+          "scheduledOffsetMinutes": 34
+        },
+        {
+          "stopId": "stop-amb-cantt",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 52.5,
+          "scheduledOffsetMinutes": 68
+        },
+        {
+          "stopId": "stop-zirakpur",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 78.8,
+          "scheduledOffsetMinutes": 101
+        },
+        {
+          "stopId": "stop-chd-17",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 105.0,
+          "scheduledOffsetMinutes": 135
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 30.129,
+          "longitude": 77.267
+        },
+        {
+          "latitude": 30.172,
+          "longitude": 77.301
+        },
+        {
+          "latitude": 30.342,
+          "longitude": 76.84
+        },
+        {
+          "latitude": 30.642,
+          "longitude": 76.818
+        },
+        {
+          "latitude": 30.7398,
+          "longitude": 76.7827
+        }
+      ]
+    },
+    {
+      "id": "route-pkl-amb-15",
+      "routeCode": "HR-ORD-15",
+      "name": "Panchkula Sector 5 ➔ Ambala Cantt (via Pinjore, Zirakpur)",
+      "nameHindi": "पंचकूला सेक्टर 5 ➔ अंबाला छावनी",
+      "origin": "Panchkula Sector 5 Terminal",
+      "destination": "Ambala Cantt General Bus Stand",
+      "distanceKm": 48.0,
+      "estimatedDurationMinutes": 65,
+      "majorCities": [
+        "Panchkula",
+        "Chandigarh",
+        "Ambala"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-pkl-sec5",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-zirakpur",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 16.0,
+          "scheduledOffsetMinutes": 22
+        },
+        {
+          "stopId": "stop-amb-city",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 32.0,
+          "scheduledOffsetMinutes": 43
+        },
+        {
+          "stopId": "stop-amb-cantt",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 48.0,
+          "scheduledOffsetMinutes": 65
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 30.6942,
+          "longitude": 76.8606
+        },
+        {
+          "latitude": 30.642,
+          "longitude": 76.818
+        },
+        {
+          "latitude": 30.378,
+          "longitude": 76.776
+        },
+        {
+          "latitude": 30.342,
+          "longitude": 76.84
+        }
+      ]
+    },
+    {
+      "id": "route-mnd-del-16",
+      "routeCode": "HR-EXP-16",
+      "name": "Narnaul Bus Stand ➔ Delhi ISBT (via Rewari, Gurugram)",
+      "nameHindi": "नारनौल ➔ दिल्ली (वाया रेवाड़ी, गुरुग्राम)",
+      "origin": "Narnaul General Bus Stand",
+      "destination": "Delhi Kashmere Gate ISBT",
+      "distanceKm": 142.0,
+      "estimatedDurationMinutes": 190,
+      "majorCities": [
+        "Mahendragarh",
+        "Rewari",
+        "Gurugram",
+        "Delhi NCR"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-mnd-narnaul",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-mnd-ateli",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 23.7,
+          "scheduledOffsetMinutes": 32
+        },
+        {
+          "stopId": "stop-rew-stand",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 47.3,
+          "scheduledOffsetMinutes": 63
+        },
+        {
+          "stopId": "stop-dharuhera",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 71.0,
+          "scheduledOffsetMinutes": 95
+        },
+        {
+          "stopId": "stop-ggn-iffco",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 94.7,
+          "scheduledOffsetMinutes": 127
+        },
+        {
+          "stopId": "stop-del-dhaula-kuan",
+          "sequenceOrder": 6,
+          "distanceFromStartKm": 118.3,
+          "scheduledOffsetMinutes": 158
+        },
+        {
+          "stopId": "stop-del-isbt-kg",
+          "sequenceOrder": 7,
+          "distanceFromStartKm": 142.0,
+          "scheduledOffsetMinutes": 190
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.0435,
+          "longitude": 76.107
+        },
+        {
+          "latitude": 28.102,
+          "longitude": 76.261
+        },
+        {
+          "latitude": 28.183,
+          "longitude": 76.618
+        },
+        {
+          "latitude": 28.205,
+          "longitude": 76.792
+        },
+        {
+          "latitude": 28.472,
+          "longitude": 77.0725
+        },
+        {
+          "latitude": 28.592,
+          "longitude": 77.161
+        },
+        {
+          "latitude": 28.6675,
+          "longitude": 77.2285
+        }
+      ]
+    },
+    {
+      "id": "route-cd-rew-17",
+      "routeCode": "HR-ORD-17",
+      "name": "Charkhi Dadri Bus Stand ➔ Rewari Bus Stand (via Kanina, Kosli)",
+      "nameHindi": "चरखी दादरी ➔ रेवाड़ी (वाया कनीना, कोसली)",
+      "origin": "Charkhi Dadri Main Bus Stand",
+      "destination": "Rewari General Bus Stand",
+      "distanceKm": 68.0,
+      "estimatedDurationMinutes": 95,
+      "majorCities": [
+        "Charkhi Dadri",
+        "Mahendragarh",
+        "Rewari"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-cd-bus-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-mnd-kanina",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 22.7,
+          "scheduledOffsetMinutes": 32
+        },
+        {
+          "stopId": "stop-rew-kosli",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 45.3,
+          "scheduledOffsetMinutes": 63
+        },
+        {
+          "stopId": "stop-rew-stand",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 68.0,
+          "scheduledOffsetMinutes": 95
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.5921,
+          "longitude": 76.2657
+        },
+        {
+          "latitude": 28.324,
+          "longitude": 76.315
+        },
+        {
+          "latitude": 28.411,
+          "longitude": 76.482
+        },
+        {
+          "latitude": 28.183,
+          "longitude": 76.618
+        }
+      ]
+    },
+    {
+      "id": "route-jhj-del-18",
+      "routeCode": "HR-ORD-18",
+      "name": "Jhajjar Main Bus Stand ➔ Delhi Kashmere Gate ISBT (via Bahadurgarh)",
+      "nameHindi": "झज्जर ➔ दिल्ली (वाया बहादुरगढ़)",
+      "origin": "Jhajjar Main Bus Stand",
+      "destination": "Delhi Kashmere Gate ISBT",
+      "distanceKm": 64.0,
+      "estimatedDurationMinutes": 90,
+      "majorCities": [
+        "Jhajjar",
+        "Delhi NCR"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-jhj-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-jhj-beri",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 21.3,
+          "scheduledOffsetMinutes": 30
+        },
+        {
+          "stopId": "stop-bahadurgarh",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 42.7,
+          "scheduledOffsetMinutes": 60
+        },
+        {
+          "stopId": "stop-del-isbt-kg",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 64.0,
+          "scheduledOffsetMinutes": 90
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.608,
+          "longitude": 76.656
+        },
+        {
+          "latitude": 28.705,
+          "longitude": 76.582
+        },
+        {
+          "latitude": 28.692,
+          "longitude": 76.924
+        },
+        {
+          "latitude": 28.6675,
+          "longitude": 77.2285
+        }
+      ]
+    },
+    {
+      "id": "route-snp-del-19",
+      "routeCode": "HR-ORD-19",
+      "name": "Sonipat Bus Stand ➔ Delhi Kashmere Gate ISBT (via Kundli Border)",
+      "nameHindi": "सोनीपत ➔ दिल्ली कश्मीरी गेट (वाया कुंडली बॉर्डर)",
+      "origin": "Sonipat New Bus Stand",
+      "destination": "Delhi Kashmere Gate ISBT",
+      "distanceKm": 48.0,
+      "estimatedDurationMinutes": 70,
+      "majorCities": [
+        "Sonipat",
+        "Delhi NCR"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-snp-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-murthal",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 16.0,
+          "scheduledOffsetMinutes": 23
+        },
+        {
+          "stopId": "stop-snp-kundli",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 32.0,
+          "scheduledOffsetMinutes": 47
+        },
+        {
+          "stopId": "stop-del-isbt-kg",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 48.0,
+          "scheduledOffsetMinutes": 70
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.995,
+          "longitude": 77.012
+        },
+        {
+          "latitude": 29.025,
+          "longitude": 77.07
+        },
+        {
+          "latitude": 28.878,
+          "longitude": 77.121
+        },
+        {
+          "latitude": 28.6675,
+          "longitude": 77.2285
+        }
+      ]
+    },
+    {
+      "id": "route-snp-goh-20",
+      "routeCode": "HR-ORD-20",
+      "name": "Sonipat Bus Stand ➔ Rohtak New Bus Stand (via Gohana)",
+      "nameHindi": "सोनीपत ➔ रोहतक (वाया गोहाना)",
+      "origin": "Sonipat New Bus Stand",
+      "destination": "Rohtak New Bus Stand",
+      "distanceKm": 72.0,
+      "estimatedDurationMinutes": 100,
+      "majorCities": [
+        "Sonipat",
+        "Rohtak"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-snp-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-snp-gohana",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 24.0,
+          "scheduledOffsetMinutes": 33
+        },
+        {
+          "stopId": "stop-rtk-mdu",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 48.0,
+          "scheduledOffsetMinutes": 67
+        },
+        {
+          "stopId": "stop-rtk-stand",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 72.0,
+          "scheduledOffsetMinutes": 100
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.995,
+          "longitude": 77.012
+        },
+        {
+          "latitude": 29.135,
+          "longitude": 76.702
+        },
+        {
+          "latitude": 28.882,
+          "longitude": 76.618
+        },
+        {
+          "latitude": 28.8955,
+          "longitude": 76.6066
+        }
+      ]
+    },
+    {
+      "id": "route-nuh-ggn-21",
+      "routeCode": "HR-ORD-21",
+      "name": "Nuh Main Bus Stand ➔ Gurugram General Bus Stand (via Taoru, Sohna)",
+      "nameHindi": "नूहं ➔ गुरुग्राम (वाया तावडू, सोहना)",
+      "origin": "Nuh Main Bus Stand",
+      "destination": "Gurugram General Bus Stand",
+      "distanceKm": 46.0,
+      "estimatedDurationMinutes": 70,
+      "majorCities": [
+        "Nuh",
+        "Gurugram"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-nuh-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-nuh-taoru",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 11.5,
+          "scheduledOffsetMinutes": 18
+        },
+        {
+          "stopId": "stop-ggn-sohna",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 23.0,
+          "scheduledOffsetMinutes": 35
+        },
+        {
+          "stopId": "stop-ggn-rajiv",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 34.5,
+          "scheduledOffsetMinutes": 52
+        },
+        {
+          "stopId": "stop-ggn-stand",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 46.0,
+          "scheduledOffsetMinutes": 70
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.112,
+          "longitude": 77.015
+        },
+        {
+          "latitude": 28.215,
+          "longitude": 76.952
+        },
+        {
+          "latitude": 28.248,
+          "longitude": 77.062
+        },
+        {
+          "latitude": 28.448,
+          "longitude": 77.035
+        },
+        {
+          "latitude": 28.461,
+          "longitude": 77.025
+        }
+      ]
+    },
+    {
+      "id": "route-pal-del-22",
+      "routeCode": "HR-ORD-22",
+      "name": "Palwal Main Bus Stand ➔ Delhi Sarai Kale Khan (via Ballabgarh, Faridabad)",
+      "nameHindi": "पलवल ➔ दिल्ली सराय काले खां (वाया बल्लभगढ़, फरीदाबाद)",
+      "origin": "Palwal Main Bus Stand",
+      "destination": "Sarai Kale Khan ISBT, Delhi",
+      "distanceKm": 58.0,
+      "estimatedDurationMinutes": 85,
+      "majorCities": [
+        "Palwal",
+        "Faridabad",
+        "Delhi NCR"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-pal-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-ballabgarh",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 14.5,
+          "scheduledOffsetMinutes": 21
+        },
+        {
+          "stopId": "stop-fbd-nit",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 29.0,
+          "scheduledOffsetMinutes": 42
+        },
+        {
+          "stopId": "stop-fbd-badarpur",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 43.5,
+          "scheduledOffsetMinutes": 64
+        },
+        {
+          "stopId": "stop-del-skk",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 58.0,
+          "scheduledOffsetMinutes": 85
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.144,
+          "longitude": 77.328
+        },
+        {
+          "latitude": 28.3385,
+          "longitude": 77.3245
+        },
+        {
+          "latitude": 28.388,
+          "longitude": 77.305
+        },
+        {
+          "latitude": 28.495,
+          "longitude": 77.301
+        },
+        {
+          "latitude": 28.589,
+          "longitude": 77.256
+        }
+      ]
+    },
+    {
+      "id": "route-fat-chd-23",
+      "routeCode": "HR-EXP-23",
+      "name": "Fatehabad Bus Stand ➔ Chandigarh ISBT (via Tohana, Kaithal, Ambala)",
+      "nameHindi": "फतेहाबाद ➔ चंडीगढ़ (वाया टोहाना, कैथल, अंबाला)",
+      "origin": "Fatehabad Bus Stand",
+      "destination": "Chandigarh ISBT Sector 17",
+      "distanceKm": 210.0,
+      "estimatedDurationMinutes": 260,
+      "majorCities": [
+        "Fatehabad",
+        "Jind",
+        "Kaithal",
+        "Ambala",
+        "Chandigarh"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-fat-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-fat-tohana",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 35.0,
+          "scheduledOffsetMinutes": 43
+        },
+        {
+          "stopId": "stop-jnd-narwana",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 70.0,
+          "scheduledOffsetMinutes": 87
+        },
+        {
+          "stopId": "stop-kth-stand",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 105.0,
+          "scheduledOffsetMinutes": 130
+        },
+        {
+          "stopId": "stop-amb-city",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 140.0,
+          "scheduledOffsetMinutes": 173
+        },
+        {
+          "stopId": "stop-zirakpur",
+          "sequenceOrder": 6,
+          "distanceFromStartKm": 175.0,
+          "scheduledOffsetMinutes": 217
+        },
+        {
+          "stopId": "stop-chd-17",
+          "sequenceOrder": 7,
+          "distanceFromStartKm": 210.0,
+          "scheduledOffsetMinutes": 260
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 29.512,
+          "longitude": 75.452
+        },
+        {
+          "latitude": 29.7042,
+          "longitude": 75.9015
+        },
+        {
+          "latitude": 29.605,
+          "longitude": 76.115
+        },
+        {
+          "latitude": 29.8015,
+          "longitude": 76.401
+        },
+        {
+          "latitude": 30.378,
+          "longitude": 76.776
+        },
+        {
+          "latitude": 30.642,
+          "longitude": 76.818
+        },
+        {
+          "latitude": 30.7398,
+          "longitude": 76.7827
+        }
+      ]
+    },
+    {
+      "id": "route-krk-del-24",
+      "routeCode": "HR-EXP-24",
+      "name": "Kurukshetra (Pipli) ➔ Delhi Kashmere Gate ISBT (via Karnal, Panipat)",
+      "nameHindi": "कुरुक्षेत्र (पिपली) ➔ दिल्ली कश्मीरी गेट (वाया करनाल, पानीपत)",
+      "origin": "Pipli Bus Stand (Kurukshetra)",
+      "destination": "Delhi Kashmere Gate ISBT",
+      "distanceKm": 158.0,
+      "estimatedDurationMinutes": 200,
+      "majorCities": [
+        "Kurukshetra",
+        "Karnal",
+        "Panipat",
+        "Sonipat",
+        "Delhi NCR"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-krk-pipli",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-krl-stand",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 39.5,
+          "scheduledOffsetMinutes": 50
+        },
+        {
+          "stopId": "stop-pan-stand",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 79.0,
+          "scheduledOffsetMinutes": 100
+        },
+        {
+          "stopId": "stop-murthal",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 118.5,
+          "scheduledOffsetMinutes": 150
+        },
+        {
+          "stopId": "stop-del-isbt-kg",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 158.0,
+          "scheduledOffsetMinutes": 200
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 29.972,
+          "longitude": 76.885
+        },
+        {
+          "latitude": 29.6857,
+          "longitude": 76.9905
+        },
+        {
+          "latitude": 29.3909,
+          "longitude": 76.9635
+        },
+        {
+          "latitude": 29.025,
+          "longitude": 77.07
+        },
+        {
+          "latitude": 28.6675,
+          "longitude": 77.2285
+        }
+      ]
+    },
+    {
+      "id": "route-hsr-chd-25",
+      "routeCode": "HR-EXP-25",
+      "name": "Hisar New Bus Stand ➔ Chandigarh ISBT (via Narwana, Kaithal, Ambala)",
+      "nameHindi": "हिसार ➔ चंडीगढ़ (वाया नरवाना, कैथल, अंबाला)",
+      "origin": "Hisar New Bus Stand",
+      "destination": "Chandigarh ISBT Sector 17",
+      "distanceKm": 235.0,
+      "estimatedDurationMinutes": 280,
+      "majorCities": [
+        "Hisar",
+        "Jind",
+        "Kaithal",
+        "Ambala",
+        "Chandigarh"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-hsr-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-hsr-barwala",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 39.2,
+          "scheduledOffsetMinutes": 47
+        },
+        {
+          "stopId": "stop-jnd-narwana",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 78.3,
+          "scheduledOffsetMinutes": 93
+        },
+        {
+          "stopId": "stop-kth-stand",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 117.5,
+          "scheduledOffsetMinutes": 140
+        },
+        {
+          "stopId": "stop-amb-cantt",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 156.7,
+          "scheduledOffsetMinutes": 187
+        },
+        {
+          "stopId": "stop-zirakpur",
+          "sequenceOrder": 6,
+          "distanceFromStartKm": 195.8,
+          "scheduledOffsetMinutes": 233
+        },
+        {
+          "stopId": "stop-chd-17",
+          "sequenceOrder": 7,
+          "distanceFromStartKm": 235.0,
+          "scheduledOffsetMinutes": 280
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 29.1539,
+          "longitude": 75.7229
+        },
+        {
+          "latitude": 29.378,
+          "longitude": 75.912
+        },
+        {
+          "latitude": 29.605,
+          "longitude": 76.115
+        },
+        {
+          "latitude": 29.8015,
+          "longitude": 76.401
+        },
+        {
+          "latitude": 30.342,
+          "longitude": 76.84
+        },
+        {
+          "latitude": 30.642,
+          "longitude": 76.818
+        },
+        {
+          "latitude": 30.7398,
+          "longitude": 76.7827
+        }
+      ]
+    },
+    {
+      "id": "route-bhw-del-26",
+      "routeCode": "HR-EXP-26",
+      "name": "Bhiwani General Bus Stand ➔ Delhi Kashmere Gate ISBT (via Rohtak)",
+      "nameHindi": "भिवानी ➔ दिल्ली कश्मीरी गेट (वाया रोहतक, बहादुरगढ़)",
+      "origin": "Bhiwani General Bus Stand",
+      "destination": "Delhi Kashmere Gate ISBT",
+      "distanceKm": 120.0,
+      "estimatedDurationMinutes": 165,
+      "majorCities": [
+        "Bhiwani",
+        "Rohtak",
+        "Jhajjar",
+        "Delhi NCR"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-bhw-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-kalanaur",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 24.0,
+          "scheduledOffsetMinutes": 33
+        },
+        {
+          "stopId": "stop-rtk-stand",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 48.0,
+          "scheduledOffsetMinutes": 66
+        },
+        {
+          "stopId": "stop-sampla",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 72.0,
+          "scheduledOffsetMinutes": 99
+        },
+        {
+          "stopId": "stop-bahadurgarh",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 96.0,
+          "scheduledOffsetMinutes": 132
+        },
+        {
+          "stopId": "stop-del-isbt-kg",
+          "sequenceOrder": 6,
+          "distanceFromStartKm": 120.0,
+          "scheduledOffsetMinutes": 165
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.7885,
+          "longitude": 76.1365
+        },
+        {
+          "latitude": 28.825,
+          "longitude": 76.402
+        },
+        {
+          "latitude": 28.8955,
+          "longitude": 76.6066
+        },
+        {
+          "latitude": 28.775,
+          "longitude": 76.772
+        },
+        {
+          "latitude": 28.692,
+          "longitude": 76.924
+        },
+        {
+          "latitude": 28.6675,
+          "longitude": 77.2285
+        }
+      ]
+    },
+    {
+      "id": "route-sir-del-27",
+      "routeCode": "HR-EXP-27",
+      "name": "Sirsa Bus Stand ➔ Delhi Kashmere Gate ISBT (via Fatehabad, Hisar, Rohtak)",
+      "nameHindi": "सिरसा ➔ दिल्ली (वाया फतेहाबाद, हिसार, रोहतक)",
+      "origin": "Sirsa General Bus Stand",
+      "destination": "Delhi Kashmere Gate ISBT",
+      "distanceKm": 256.0,
+      "estimatedDurationMinutes": 330,
+      "majorCities": [
+        "Sirsa",
+        "Fatehabad",
+        "Hisar",
+        "Rohtak",
+        "Delhi NCR"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-sir-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-fat-stand",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 42.7,
+          "scheduledOffsetMinutes": 55
+        },
+        {
+          "stopId": "stop-hsr-stand",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 85.3,
+          "scheduledOffsetMinutes": 110
+        },
+        {
+          "stopId": "stop-meham",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 128.0,
+          "scheduledOffsetMinutes": 165
+        },
+        {
+          "stopId": "stop-rtk-stand",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 170.7,
+          "scheduledOffsetMinutes": 220
+        },
+        {
+          "stopId": "stop-bahadurgarh",
+          "sequenceOrder": 6,
+          "distanceFromStartKm": 213.3,
+          "scheduledOffsetMinutes": 275
+        },
+        {
+          "stopId": "stop-del-isbt-kg",
+          "sequenceOrder": 7,
+          "distanceFromStartKm": 256.0,
+          "scheduledOffsetMinutes": 330
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 29.534,
+          "longitude": 75.032
+        },
+        {
+          "latitude": 29.512,
+          "longitude": 75.452
+        },
+        {
+          "latitude": 29.1539,
+          "longitude": 75.7229
+        },
+        {
+          "latitude": 28.965,
+          "longitude": 76.295
+        },
+        {
+          "latitude": 28.8955,
+          "longitude": 76.6066
+        },
+        {
+          "latitude": 28.692,
+          "longitude": 76.924
+        },
+        {
+          "latitude": 28.6675,
+          "longitude": 77.2285
+        }
+      ]
+    },
+    {
+      "id": "route-pal-fbd-28",
+      "routeCode": "HR-ORD-28",
+      "name": "Palwal Bus Stand ➔ Faridabad NIT (via Ballabgarh)",
+      "nameHindi": "पलवल ➔ फरीदाबाद एनआईटी (वाया बल्लभगढ़)",
+      "origin": "Palwal Main Bus Stand",
+      "destination": "Faridabad NIT Bus Stand",
+      "distanceKm": 28.0,
+      "estimatedDurationMinutes": 45,
+      "majorCities": [
+        "Palwal",
+        "Faridabad"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-pal-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-ballabgarh",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 14.0,
+          "scheduledOffsetMinutes": 22
+        },
+        {
+          "stopId": "stop-fbd-nit",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 28.0,
+          "scheduledOffsetMinutes": 45
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.144,
+          "longitude": 77.328
+        },
+        {
+          "latitude": 28.3385,
+          "longitude": 77.3245
+        },
+        {
+          "latitude": 28.388,
+          "longitude": 77.305
+        }
+      ]
+    },
+    {
+      "id": "route-nuh-pal-29",
+      "routeCode": "HR-ORD-29",
+      "name": "Nuh Main Bus Stand ➔ Palwal Bus Stand (via Hathin)",
+      "nameHindi": "नूहं ➔ पलवल (वाया हथीन)",
+      "origin": "Nuh Main Bus Stand",
+      "destination": "Palwal Main Bus Stand",
+      "distanceKm": 35.0,
+      "estimatedDurationMinutes": 55,
+      "majorCities": [
+        "Nuh",
+        "Palwal"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-nuh-stand",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-pal-hathin",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 17.5,
+          "scheduledOffsetMinutes": 28
+        },
+        {
+          "stopId": "stop-pal-stand",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 35.0,
+          "scheduledOffsetMinutes": 55
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.112,
+          "longitude": 77.015
+        },
+        {
+          "latitude": 28.052,
+          "longitude": 77.241
+        },
+        {
+          "latitude": 28.144,
+          "longitude": 77.328
+        }
+      ]
+    },
+    {
+      "id": "route-mnd-bhw-30",
+      "routeCode": "HR-ORD-30",
+      "name": "Narnaul Bus Stand ➔ Bhiwani Bus Stand (via Mahendragarh, Charkhi Dadri)",
+      "nameHindi": "नारनौल ➔ भिवानी (वाया महेंद्रगढ़, चरखी दादरी)",
+      "origin": "Narnaul General Bus Stand",
+      "destination": "Bhiwani General Bus Stand",
+      "distanceKm": 88.0,
+      "estimatedDurationMinutes": 125,
+      "majorCities": [
+        "Mahendragarh",
+        "Charkhi Dadri",
+        "Bhiwani"
+      ],
+      "stops": [
+        {
+          "stopId": "stop-mnd-narnaul",
+          "sequenceOrder": 1,
+          "distanceFromStartKm": 0.0,
+          "scheduledOffsetMinutes": 0
+        },
+        {
+          "stopId": "stop-mnd-stand",
+          "sequenceOrder": 2,
+          "distanceFromStartKm": 22.0,
+          "scheduledOffsetMinutes": 31
+        },
+        {
+          "stopId": "stop-cd-bus-stand",
+          "sequenceOrder": 3,
+          "distanceFromStartKm": 44.0,
+          "scheduledOffsetMinutes": 62
+        },
+        {
+          "stopId": "stop-kitlana",
+          "sequenceOrder": 4,
+          "distanceFromStartKm": 66.0,
+          "scheduledOffsetMinutes": 94
+        },
+        {
+          "stopId": "stop-bhw-stand",
+          "sequenceOrder": 5,
+          "distanceFromStartKm": 88.0,
+          "scheduledOffsetMinutes": 125
+        }
+      ],
+      "waypoints": [
+        {
+          "latitude": 28.0435,
+          "longitude": 76.107
+        },
+        {
+          "latitude": 28.275,
+          "longitude": 76.152
+        },
+        {
+          "latitude": 28.5921,
+          "longitude": 76.2657
+        },
+        {
+          "latitude": 28.685,
+          "longitude": 76.23
+        },
+        {
+          "latitude": 28.7885,
+          "longitude": 76.1365
+        }
+      ]
+    }
+  ],
+  "buses": [
+    {
+      "id": "bus-gur-1000",
+      "busNumber": "HR-26-G-1000",
+      "depot": "Gurugram Depot",
+      "city": "Gurugram",
+      "busType": "SAARTHI_VOLVO",
+      "totalCapacity": 45,
+      "seatingCapacity": 45,
+      "registrationYear": 2023,
+      "driverName": "Driver Gurugram (Kuldeep)",
+      "driverPhone": "+91 98120 10000"
+    },
+    {
+      "id": "bus-roh-1037",
+      "busNumber": "HR-12-G-1037",
+      "depot": "Rohtak Depot",
+      "city": "Rohtak",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2024,
+      "driverName": "Driver Rohtak (Suresh)",
+      "driverPhone": "+91 98120 10111"
+    },
+    {
+      "id": "bus-his-1074",
+      "busNumber": "HR-20-G-1074",
+      "depot": "Hisar Depot",
+      "city": "Hisar",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2025,
+      "driverName": "Driver Hisar (Rajesh)",
+      "driverPhone": "+91 98120 10222"
+    },
+    {
+      "id": "bus-bhi-1111",
+      "busNumber": "HR-16-G-1111",
+      "depot": "Bhiwani Depot",
+      "city": "Bhiwani",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2023,
+      "driverName": "Driver Bhiwani (Balwant)",
+      "driverPhone": "+91 98120 10333"
+    },
+    {
+      "id": "bus-cha-1148",
+      "busNumber": "HR-19-G-1148",
+      "depot": "Charkhi Dadri Depot",
+      "city": "Charkhi Dadri",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2024,
+      "driverName": "Driver Charkhi Dadri (Joginder)",
+      "driverPhone": "+91 98120 10444"
+    },
+    {
+      "id": "bus-pan-1185",
+      "busNumber": "HR-06-G-1185",
+      "depot": "Panipat Depot",
+      "city": "Panipat",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2025,
+      "driverName": "Driver Panipat (Virender)",
+      "driverPhone": "+91 98120 10555"
+    },
+    {
+      "id": "bus-rew-1222",
+      "busNumber": "HR-36-G-1222",
+      "depot": "Rewari Depot",
+      "city": "Rewari",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2023,
+      "driverName": "Driver Rewari (Kuldeep)",
+      "driverPhone": "+91 98120 10666"
+    },
+    {
+      "id": "bus-far-1259",
+      "busNumber": "HR-29-G-1259",
+      "depot": "Faridabad Depot",
+      "city": "Faridabad",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2024,
+      "driverName": "Driver Faridabad (Suresh)",
+      "driverPhone": "+91 98120 10777"
+    },
+    {
+      "id": "bus-amb-1296",
+      "busNumber": "HR-01-G-1296",
+      "depot": "Ambala Depot",
+      "city": "Ambala",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2025,
+      "driverName": "Driver Ambala (Rajesh)",
+      "driverPhone": "+91 98120 10888"
+    },
+    {
+      "id": "bus-sir-1333",
+      "busNumber": "HR-24-G-1333",
+      "depot": "Sirsa Depot",
+      "city": "Sirsa",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2023,
+      "driverName": "Driver Sirsa (Balwant)",
+      "driverPhone": "+91 98120 10999"
+    },
+    {
+      "id": "bus-jin-1370",
+      "busNumber": "HR-31-G-1370",
+      "depot": "Jind Depot",
+      "city": "Jind",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2024,
+      "driverName": "Driver Jind (Joginder)",
+      "driverPhone": "+91 98120 11110"
+    },
+    {
+      "id": "bus-kai-1407",
+      "busNumber": "HR-08-G-1407",
+      "depot": "Kaithal Depot",
+      "city": "Kaithal",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2025,
+      "driverName": "Driver Kaithal (Virender)",
+      "driverPhone": "+91 98120 11221"
+    },
+    {
+      "id": "bus-kar-1444",
+      "busNumber": "HR-05-G-1444",
+      "depot": "Karnal Depot",
+      "city": "Karnal",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2023,
+      "driverName": "Driver Karnal (Kuldeep)",
+      "driverPhone": "+91 98120 11332"
+    },
+    {
+      "id": "bus-yam-1481",
+      "busNumber": "HR-02-G-1481",
+      "depot": "Yamunanagar Depot",
+      "city": "Yamunanagar",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2024,
+      "driverName": "Driver Yamunanagar (Suresh)",
+      "driverPhone": "+91 98120 11443"
+    },
+    {
+      "id": "bus-pan-1518",
+      "busNumber": "HR-03-G-1518",
+      "depot": "Panchkula Depot",
+      "city": "Panchkula",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2025,
+      "driverName": "Driver Panchkula (Rajesh)",
+      "driverPhone": "+91 98120 11554"
+    },
+    {
+      "id": "bus-mah-1555",
+      "busNumber": "HR-34-G-1555",
+      "depot": "Mahendragarh Depot",
+      "city": "Mahendragarh",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2023,
+      "driverName": "Driver Mahendragarh (Balwant)",
+      "driverPhone": "+91 98120 11665"
+    },
+    {
+      "id": "bus-cha-1592",
+      "busNumber": "HR-19-G-1592",
+      "depot": "Charkhi Dadri Depot",
+      "city": "Charkhi Dadri",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2024,
+      "driverName": "Driver Charkhi Dadri (Joginder)",
+      "driverPhone": "+91 98120 11776"
+    },
+    {
+      "id": "bus-jha-1629",
+      "busNumber": "HR-14-G-1629",
+      "depot": "Jhajjar Depot",
+      "city": "Jhajjar",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2025,
+      "driverName": "Driver Jhajjar (Virender)",
+      "driverPhone": "+91 98120 11887"
+    },
+    {
+      "id": "bus-son-1666",
+      "busNumber": "HR-10-G-1666",
+      "depot": "Sonipat Depot",
+      "city": "Sonipat",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2023,
+      "driverName": "Driver Sonipat (Kuldeep)",
+      "driverPhone": "+91 98120 11998"
+    },
+    {
+      "id": "bus-son-1703",
+      "busNumber": "HR-10-G-1703",
+      "depot": "Sonipat Depot",
+      "city": "Sonipat",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2024,
+      "driverName": "Driver Sonipat (Suresh)",
+      "driverPhone": "+91 98120 12109"
+    },
+    {
+      "id": "bus-nuh-1740",
+      "busNumber": "HR-27-G-1740",
+      "depot": "Nuh Depot",
+      "city": "Nuh",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2025,
+      "driverName": "Driver Nuh (Rajesh)",
+      "driverPhone": "+91 98120 12220"
+    },
+    {
+      "id": "bus-pal-1777",
+      "busNumber": "HR-30-G-1777",
+      "depot": "Palwal Depot",
+      "city": "Palwal",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2023,
+      "driverName": "Driver Palwal (Balwant)",
+      "driverPhone": "+91 98120 12331"
+    },
+    {
+      "id": "bus-fat-1814",
+      "busNumber": "HR-22-G-1814",
+      "depot": "Fatehabad Depot",
+      "city": "Fatehabad",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2024,
+      "driverName": "Driver Fatehabad (Joginder)",
+      "driverPhone": "+91 98120 12442"
+    },
+    {
+      "id": "bus-kur-1851",
+      "busNumber": "HR-07-G-1851",
+      "depot": "Kurukshetra Depot",
+      "city": "Kurukshetra",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2025,
+      "driverName": "Driver Kurukshetra (Virender)",
+      "driverPhone": "+91 98120 12553"
+    },
+    {
+      "id": "bus-his-1888",
+      "busNumber": "HR-20-G-1888",
+      "depot": "Hisar Depot",
+      "city": "Hisar",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2023,
+      "driverName": "Driver Hisar (Kuldeep)",
+      "driverPhone": "+91 98120 12664"
+    },
+    {
+      "id": "bus-bhi-1925",
+      "busNumber": "HR-16-G-1925",
+      "depot": "Bhiwani Depot",
+      "city": "Bhiwani",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2024,
+      "driverName": "Driver Bhiwani (Suresh)",
+      "driverPhone": "+91 98120 12775"
+    },
+    {
+      "id": "bus-sir-1962",
+      "busNumber": "HR-24-G-1962",
+      "depot": "Sirsa Depot",
+      "city": "Sirsa",
+      "busType": "SEMI_DELUXE",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2025,
+      "driverName": "Driver Sirsa (Rajesh)",
+      "driverPhone": "+91 98120 12886"
+    },
+    {
+      "id": "bus-pal-1999",
+      "busNumber": "HR-30-G-1999",
+      "depot": "Palwal Depot",
+      "city": "Palwal",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2023,
+      "driverName": "Driver Palwal (Balwant)",
+      "driverPhone": "+91 98120 12997"
+    },
+    {
+      "id": "bus-nuh-2036",
+      "busNumber": "HR-27-G-2036",
+      "depot": "Nuh Depot",
+      "city": "Nuh",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2024,
+      "driverName": "Driver Nuh (Joginder)",
+      "driverPhone": "+91 98120 13108"
+    },
+    {
+      "id": "bus-mah-2073",
+      "busNumber": "HR-34-G-2073",
+      "depot": "Mahendragarh Depot",
+      "city": "Mahendragarh",
+      "busType": "ORDINARY",
+      "totalCapacity": 52,
+      "seatingCapacity": 52,
+      "registrationYear": 2025,
+      "driverName": "Driver Mahendragarh (Virender)",
+      "driverPhone": "+91 98120 13219"
+    }
+  ],
+  "trips": [
+    {
+      "id": "trip-gur-01",
+      "busId": "bus-gur-1000",
+      "routeId": "route-ggn-chd-01",
+      "city": "Gurugram",
+      "scheduledDeparture": "05:30:00",
+      "actualDeparture": "05:30:00",
+      "status": "ACTIVE",
+      "currentLatitude": 29.3909,
+      "currentLongitude": 76.9635,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 0.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-krl-stand",
+      "passedStopIds": [
+        "stop-ggn-stand",
+        "stop-ggn-iffco",
+        "stop-del-dhaula-kuan",
+        "stop-del-isbt-kg",
+        "stop-murthal",
+        "stop-pan-stand"
+      ]
+    },
+    {
+      "id": "trip-roh-02",
+      "busId": "bus-roh-1037",
+      "routeId": "route-rtk-del-02",
+      "city": "Rohtak",
+      "scheduledDeparture": "06:00:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 28.8955,
+      "currentLongitude": 76.6066,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 45.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-bahadurgarh",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-his-03",
+      "busId": "bus-his-1074",
+      "routeId": "route-hsr-del-03",
+      "city": "Hisar",
+      "scheduledDeparture": "05:00:00",
+      "actualDeparture": "05:00:00",
+      "status": "ACTIVE",
+      "currentLatitude": 28.8955,
+      "currentLongitude": 76.6066,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 90.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-bahadurgarh",
+      "passedStopIds": [
+        "stop-hsr-stand",
+        "stop-hansi",
+        "stop-meham",
+        "stop-rtk-stand"
+      ]
+    },
+    {
+      "id": "trip-bhi-04",
+      "busId": "bus-bhi-1111",
+      "routeId": "route-bhw-rtk-04",
+      "city": "Bhiwani",
+      "scheduledDeparture": "06:15:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 28.7885,
+      "currentLongitude": 76.1365,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 135.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-rtk-stand",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-cha-05",
+      "busId": "bus-cha-1148",
+      "routeId": "route-cd-bhw-05",
+      "city": "Charkhi Dadri",
+      "scheduledDeparture": "06:30:00",
+      "actualDeparture": "06:30:00",
+      "status": "ACTIVE",
+      "currentLatitude": 28.685,
+      "currentLongitude": 76.23,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 180.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-bhw-stand",
+      "passedStopIds": [
+        "stop-cd-bus-stand",
+        "stop-cd-bhiwani-chungi",
+        "stop-kitlana"
+      ]
+    },
+    {
+      "id": "trip-pan-06",
+      "busId": "bus-pan-1185",
+      "routeId": "route-pan-amb-06",
+      "city": "Panipat",
+      "scheduledDeparture": "06:00:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 29.3909,
+      "currentLongitude": 76.9635,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 225.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-krk-pipli",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-rew-07",
+      "busId": "bus-rew-1222",
+      "routeId": "route-rew-ggn-07",
+      "city": "Rewari",
+      "scheduledDeparture": "06:30:00",
+      "actualDeparture": "06:30:00",
+      "status": "ACTIVE",
+      "currentLatitude": 28.448,
+      "currentLongitude": 77.035,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 270.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-ggn-stand",
+      "passedStopIds": [
+        "stop-rew-stand",
+        "stop-dharuhera",
+        "stop-ggn-manesar",
+        "stop-ggn-rajiv"
+      ]
+    },
+    {
+      "id": "trip-far-08",
+      "busId": "bus-far-1259",
+      "routeId": "route-fbd-del-08",
+      "city": "Faridabad",
+      "scheduledDeparture": "06:15:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 28.3385,
+      "currentLongitude": 77.3245,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 315.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-del-skk",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-amb-09",
+      "busId": "bus-amb-1296",
+      "routeId": "route-amb-chd-09",
+      "city": "Ambala",
+      "scheduledDeparture": "06:00:00",
+      "actualDeparture": "06:00:00",
+      "status": "ACTIVE",
+      "currentLatitude": 30.642,
+      "currentLongitude": 76.818,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 0.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-chd-17",
+      "passedStopIds": [
+        "stop-amb-cantt",
+        "stop-amb-city",
+        "stop-zirakpur"
+      ]
+    },
+    {
+      "id": "trip-sir-10",
+      "busId": "bus-sir-1333",
+      "routeId": "route-sir-hsr-10",
+      "city": "Sirsa",
+      "scheduledDeparture": "05:30:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 29.534,
+      "currentLongitude": 75.032,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 45.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-hsr-stand",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-jin-11",
+      "busId": "bus-jin-1370",
+      "routeId": "route-jnd-chd-11",
+      "city": "Jind",
+      "scheduledDeparture": "05:45:00",
+      "actualDeparture": "05:45:00",
+      "status": "ACTIVE",
+      "currentLatitude": 29.981,
+      "currentLongitude": 76.582,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 90.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-amb-city",
+      "passedStopIds": [
+        "stop-jnd-stand",
+        "stop-jnd-narwana",
+        "stop-kth-stand",
+        "stop-krk-pehowa"
+      ]
+    },
+    {
+      "id": "trip-kai-12",
+      "busId": "bus-kai-1407",
+      "routeId": "route-kth-krl-12",
+      "city": "Kaithal",
+      "scheduledDeparture": "06:30:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 29.8015,
+      "currentLongitude": 76.401,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 135.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-krl-stand",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-kar-13",
+      "busId": "bus-kar-1444",
+      "routeId": "route-krl-ymn-13",
+      "city": "Karnal",
+      "scheduledDeparture": "06:15:00",
+      "actualDeparture": "06:15:00",
+      "status": "ACTIVE",
+      "currentLatitude": 30.028,
+      "currentLongitude": 77.155,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 180.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-ymn-jagadhri",
+      "passedStopIds": [
+        "stop-krl-stand",
+        "stop-krl-taraori",
+        "stop-ymn-radaur"
+      ]
+    },
+    {
+      "id": "trip-yam-14",
+      "busId": "bus-yam-1481",
+      "routeId": "route-ymn-chd-14",
+      "city": "Yamunanagar",
+      "scheduledDeparture": "06:00:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 30.129,
+      "currentLongitude": 77.267,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 225.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-zirakpur",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-pan-15",
+      "busId": "bus-pan-1518",
+      "routeId": "route-pkl-amb-15",
+      "city": "Panchkula",
+      "scheduledDeparture": "06:30:00",
+      "actualDeparture": "06:30:00",
+      "status": "ACTIVE",
+      "currentLatitude": 30.378,
+      "currentLongitude": 76.776,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 270.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-amb-cantt",
+      "passedStopIds": [
+        "stop-pkl-sec5",
+        "stop-zirakpur",
+        "stop-amb-city"
+      ]
+    },
+    {
+      "id": "trip-mah-16",
+      "busId": "bus-mah-1555",
+      "routeId": "route-mnd-del-16",
+      "city": "Mahendragarh",
+      "scheduledDeparture": "05:15:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 28.0435,
+      "currentLongitude": 76.107,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 315.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-ggn-iffco",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-cha-17",
+      "busId": "bus-cha-1592",
+      "routeId": "route-cd-rew-17",
+      "city": "Charkhi Dadri",
+      "scheduledDeparture": "06:45:00",
+      "actualDeparture": "06:45:00",
+      "status": "ACTIVE",
+      "currentLatitude": 28.411,
+      "currentLongitude": 76.482,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 0.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-rew-stand",
+      "passedStopIds": [
+        "stop-cd-bus-stand",
+        "stop-mnd-kanina",
+        "stop-rew-kosli"
+      ]
+    },
+    {
+      "id": "trip-jha-18",
+      "busId": "bus-jha-1629",
+      "routeId": "route-jhj-del-18",
+      "city": "Jhajjar",
+      "scheduledDeparture": "06:00:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 28.608,
+      "currentLongitude": 76.656,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 45.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-del-isbt-kg",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-son-19",
+      "busId": "bus-son-1666",
+      "routeId": "route-snp-del-19",
+      "city": "Sonipat",
+      "scheduledDeparture": "06:00:00",
+      "actualDeparture": "06:00:00",
+      "status": "ACTIVE",
+      "currentLatitude": 28.878,
+      "currentLongitude": 77.121,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 90.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-del-isbt-kg",
+      "passedStopIds": [
+        "stop-snp-stand",
+        "stop-murthal",
+        "stop-snp-kundli"
+      ]
+    },
+    {
+      "id": "trip-son-20",
+      "busId": "bus-son-1703",
+      "routeId": "route-snp-goh-20",
+      "city": "Sonipat",
+      "scheduledDeparture": "06:30:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 28.995,
+      "currentLongitude": 77.012,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 135.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-rtk-stand",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-nuh-21",
+      "busId": "bus-nuh-1740",
+      "routeId": "route-nuh-ggn-21",
+      "city": "Nuh",
+      "scheduledDeparture": "06:30:00",
+      "actualDeparture": "06:30:00",
+      "status": "ACTIVE",
+      "currentLatitude": 28.248,
+      "currentLongitude": 77.062,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 180.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-ggn-rajiv",
+      "passedStopIds": [
+        "stop-nuh-stand",
+        "stop-nuh-taoru",
+        "stop-ggn-sohna"
+      ]
+    },
+    {
+      "id": "trip-pal-22",
+      "busId": "bus-pal-1777",
+      "routeId": "route-pal-del-22",
+      "city": "Palwal",
+      "scheduledDeparture": "06:00:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 28.144,
+      "currentLongitude": 77.328,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 225.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-fbd-badarpur",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-fat-23",
+      "busId": "bus-fat-1814",
+      "routeId": "route-fat-chd-23",
+      "city": "Fatehabad",
+      "scheduledDeparture": "05:15:00",
+      "actualDeparture": "05:15:00",
+      "status": "ACTIVE",
+      "currentLatitude": 29.8015,
+      "currentLongitude": 76.401,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 270.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-amb-city",
+      "passedStopIds": [
+        "stop-fat-stand",
+        "stop-fat-tohana",
+        "stop-jnd-narwana",
+        "stop-kth-stand"
+      ]
+    },
+    {
+      "id": "trip-kur-24",
+      "busId": "bus-kur-1851",
+      "routeId": "route-krk-del-24",
+      "city": "Kurukshetra",
+      "scheduledDeparture": "05:30:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 29.972,
+      "currentLongitude": 76.885,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 315.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-murthal",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-his-25",
+      "busId": "bus-his-1888",
+      "routeId": "route-hsr-chd-25",
+      "city": "Hisar",
+      "scheduledDeparture": "05:00:00",
+      "actualDeparture": "05:00:00",
+      "status": "ACTIVE",
+      "currentLatitude": 29.8015,
+      "currentLongitude": 76.401,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 0.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-amb-cantt",
+      "passedStopIds": [
+        "stop-hsr-stand",
+        "stop-hsr-barwala",
+        "stop-jnd-narwana",
+        "stop-kth-stand"
+      ]
+    },
+    {
+      "id": "trip-bhi-26",
+      "busId": "bus-bhi-1925",
+      "routeId": "route-bhw-del-26",
+      "city": "Bhiwani",
+      "scheduledDeparture": "05:30:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 28.7885,
+      "currentLongitude": 76.1365,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 45.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-bahadurgarh",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-sir-27",
+      "busId": "bus-sir-1962",
+      "routeId": "route-sir-del-27",
+      "city": "Sirsa",
+      "scheduledDeparture": "04:30:00",
+      "actualDeparture": "04:30:00",
+      "status": "ACTIVE",
+      "currentLatitude": 28.965,
+      "currentLongitude": 76.295,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 90.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-rtk-stand",
+      "passedStopIds": [
+        "stop-sir-stand",
+        "stop-fat-stand",
+        "stop-hsr-stand",
+        "stop-meham"
+      ]
+    },
+    {
+      "id": "trip-pal-28",
+      "busId": "bus-pal-1999",
+      "routeId": "route-pal-fbd-28",
+      "city": "Palwal",
+      "scheduledDeparture": "06:30:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 28.144,
+      "currentLongitude": 77.328,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 135.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-fbd-nit",
+      "passedStopIds": []
+    },
+    {
+      "id": "trip-nuh-29",
+      "busId": "bus-nuh-2036",
+      "routeId": "route-nuh-pal-29",
+      "city": "Nuh",
+      "scheduledDeparture": "07:00:00",
+      "actualDeparture": "07:00:00",
+      "status": "ACTIVE",
+      "currentLatitude": 28.052,
+      "currentLongitude": 77.241,
+      "currentSpeedKmH": 48.0,
+      "currentHeading": 180.0,
+      "currentOccupancy": 34,
+      "currentCrowdLevel": "MEDIUM",
+      "nextStopId": "stop-pal-stand",
+      "passedStopIds": [
+        "stop-nuh-stand",
+        "stop-pal-hathin"
+      ]
+    },
+    {
+      "id": "trip-mah-30",
+      "busId": "bus-mah-2073",
+      "routeId": "route-mnd-bhw-30",
+      "city": "Mahendragarh",
+      "scheduledDeparture": "06:00:00",
+      "actualDeparture": null,
+      "status": "SCHEDULED",
+      "currentLatitude": 28.0435,
+      "currentLongitude": 76.107,
+      "currentSpeedKmH": 0.0,
+      "currentHeading": 225.0,
+      "currentOccupancy": 0,
+      "currentCrowdLevel": "LOW",
+      "nextStopId": "stop-kitlana",
+      "passedStopIds": []
+    }
+  ]
+}

@@ -327,262 +327,66 @@ export const ApiService = {
 };
 
 // ==========================================
-// FALLBACK DATASETS ACROSS HARYANA ROADWAYS
+// FALLBACK DATASETS ACROSS ALL 22 DISTRICTS OF HARYANA
 // ==========================================
 
-export const FALLBACK_BUSES: Bus[] = [
-  {
-    id: 1,
-    busNumber: 'HR-12-8834',
-    registrationNumber: 'HR-12-G-8834',
-    busType: 'ORDINARY',
-    capacity: 52,
-    status: 'ACTIVE',
-  },
-  {
-    id: 2,
-    busNumber: 'HR-19-1042',
-    registrationNumber: 'HR-19-B-1042',
-    busType: 'SEMI_DELUXE',
-    capacity: 48,
-    status: 'ACTIVE',
-  },
-  {
-    id: 3,
-    busNumber: 'HR-16-2055',
-    registrationNumber: 'HR-16-E-2055',
-    busType: 'ORDINARY',
-    capacity: 52,
-    status: 'ACTIVE',
-  },
-  {
-    id: 4,
-    busNumber: 'HR-26-4012',
-    registrationNumber: 'HR-26-H-4012',
-    busType: 'VOLVO_AC',
-    capacity: 45,
-    status: 'ACTIVE',
-  },
-  {
-    id: 5,
-    busNumber: 'HR-20-3301',
-    registrationNumber: 'HR-20-F-3301',
-    busType: 'ORDINARY',
-    capacity: 52,
-    status: 'ACTIVE',
-  },
-];
+import transportData from '../data/haryana-transport-data.json';
 
-export const FALLBACK_ROUTES: Route[] = [
-  {
-    id: 1,
-    routeNumber: 'RTK-DEL-01',
-    source: 'Rohtak',
-    destination: 'Delhi ISBT',
-    totalDistance: 72.5,
-  },
-  {
-    id: 2,
-    routeNumber: 'CD-BHW-02',
-    source: 'Charkhi Dadri',
-    destination: 'Bhiwani',
-    totalDistance: 31.0,
-  },
-  {
-    id: 3,
-    routeNumber: 'CD-HSR-03',
-    source: 'Charkhi Dadri',
-    destination: 'Hisar',
-    totalDistance: 94.2,
-  },
-  {
-    id: 4,
-    routeNumber: 'GGN-CDG-04',
-    source: 'Gurugram',
-    destination: 'Chandigarh ISBT',
-    totalDistance: 278.0,
-  },
-  {
-    id: 5,
-    routeNumber: 'RTK-HSR-05',
-    source: 'Rohtak',
-    destination: 'Hisar',
-    totalDistance: 98.4,
-  },
-];
+export const FALLBACK_BUSES: Bus[] = transportData.buses.map((b, idx) => ({
+  id: idx + 1,
+  busNumber: b.busNumber,
+  registrationNumber: b.busNumber,
+  busType: b.busType as any,
+  capacity: b.totalCapacity,
+  status: 'ACTIVE',
+}));
 
-export const FALLBACK_STOPS: BusStop[] = [
-  {
-    id: 1,
-    name: 'Rohtak New Bus Stand',
-    district: 'Rohtak',
-    latitude: 28.8955,
-    longitude: 76.6066,
-  },
-  {
-    id: 2,
-    name: 'Bahadurgarh Bus Stand',
-    district: 'Jhajjar',
-    latitude: 28.6924,
-    longitude: 76.9242,
-  },
-  {
-    id: 3,
-    name: 'Delhi ISBT Kashmiri Gate',
-    district: 'Delhi',
-    latitude: 28.6675,
-    longitude: 77.2285,
-  },
-  {
-    id: 4,
-    name: 'Charkhi Dadri Bus Stand',
-    district: 'Charkhi Dadri',
-    latitude: 28.5921,
-    longitude: 76.2711,
-  },
-  {
-    id: 5,
-    name: 'Kitlana Bypass',
-    district: 'Bhiwani',
-    latitude: 28.712,
-    longitude: 76.241,
-  },
-  {
-    id: 6,
-    name: 'Bhiwani New Bus Stand',
-    district: 'Bhiwani',
-    latitude: 28.7972,
-    longitude: 76.1322,
-  },
-  {
-    id: 7,
-    name: 'Hisar General Bus Stand',
-    district: 'Hisar',
-    latitude: 29.1539,
-    longitude: 75.7229,
-  },
-  {
-    id: 8,
-    name: 'Gurugram Bus Stand',
-    district: 'Gurugram',
-    latitude: 28.4595,
-    longitude: 77.0266,
-  },
-  {
-    id: 9,
-    name: 'Chandigarh Sector 17 ISBT',
-    district: 'Chandigarh',
-    latitude: 30.7415,
-    longitude: 76.7794,
-  },
-];
+export const FALLBACK_ROUTES: Route[] = transportData.routes.map((r, idx) => ({
+  id: idx + 1,
+  routeNumber: r.routeCode,
+  source: r.origin.replace(' Bus Stand', '').replace(' General Bus Stand', '').replace(' Main Bus Stand', '').replace(' New Bus Stand', ''),
+  destination: r.destination.replace(' Bus Stand', '').replace(' General Bus Stand', '').replace(' Main Bus Stand', '').replace(' New Bus Stand', ''),
+  totalDistance: r.distanceKm,
+}));
 
-export const FALLBACK_TRIPS: Trip[] = [
-  {
-    id: 1,
-    tripNumber: 'TRIP-RTK-01',
-    bus: FALLBACK_BUSES[0],
-    route: FALLBACK_ROUTES[0],
-    departureTime: '2026-11-19T08:00:00',
-    arrivalTime: '2026-11-19T10:15:00',
-    status: 'RUNNING',
-  },
-  {
-    id: 2,
-    tripNumber: 'TRIP-CD-02',
-    bus: FALLBACK_BUSES[1],
-    route: FALLBACK_ROUTES[1],
-    departureTime: '2026-11-19T09:30:00',
-    arrivalTime: '2026-11-19T10:45:00',
-    status: 'SCHEDULED',
-  },
-  {
-    id: 3,
-    tripNumber: 'TRIP-CD-03',
-    bus: FALLBACK_BUSES[2],
-    route: FALLBACK_ROUTES[2],
-    departureTime: '2026-11-19T11:00:00',
-    arrivalTime: '2026-11-19T13:30:00',
-    status: 'SCHEDULED',
-  },
-  {
-    id: 4,
-    tripNumber: 'TRIP-GGN-04',
-    bus: FALLBACK_BUSES[3],
-    route: FALLBACK_ROUTES[3],
-    departureTime: '2026-11-19T06:30:00',
-    arrivalTime: '2026-11-19T12:00:00',
-    status: 'RUNNING',
-  },
-];
+export const FALLBACK_STOPS: BusStop[] = transportData.stops.map((s, idx) => ({
+  id: idx + 1,
+  name: s.name,
+  district: s.city,
+  latitude: s.latitude,
+  longitude: s.longitude,
+}));
 
-export const FALLBACK_JOURNEYS: JourneySearchResponse[] = [
-  {
-    scheduleId: 101,
-    routeNumber: 'RTK-DEL-01',
-    routeHeading: 'Rohtak → Delhi ISBT',
-    depotName: 'Rohtak Depot',
-    source: 'Rohtak',
-    destination: 'Delhi',
-    via: 'Sampla, Bahadurgarh, Tikri',
-    serviceType: 'ORDINARY',
-    operatingDays: 'DAILY',
-    travelDate: getTodayDateString(),
-    boardingTime: '08:00:00',
-    arrivalTime: '10:15:00',
-    sourceDocument: 'Rohtak Timetable CSV',
-    sourcePage: 1,
-    verified: true,
-  },
-  {
-    scheduleId: 102,
-    routeNumber: 'CD-BHW-02',
-    routeHeading: 'Charkhi Dadri → Bhiwani',
-    depotName: 'Charkhi Dadri Sub-Depot',
-    source: 'Charkhi Dadri',
-    destination: 'Bhiwani',
-    via: 'Kitlana',
-    serviceType: 'ORDINARY',
-    operatingDays: 'DAILY',
-    travelDate: getTodayDateString(),
-    boardingTime: '09:30:00',
-    arrivalTime: '10:45:00',
-    sourceDocument: 'Dadri Depot Roster',
-    sourcePage: 2,
-    verified: true,
-  },
-  {
-    scheduleId: 103,
-    routeNumber: 'CD-HSR-03',
-    routeHeading: 'Charkhi Dadri → Hisar',
-    depotName: 'Charkhi Dadri Sub-Depot',
-    source: 'Charkhi Dadri',
-    destination: 'Hisar',
-    via: 'Bhiwani, Hansi',
-    serviceType: 'SEMI_DELUXE',
-    operatingDays: 'DAILY',
-    travelDate: getTodayDateString(),
-    boardingTime: '11:00:00',
-    arrivalTime: '13:30:00',
-    sourceDocument: 'Bhiwani Sector Time Table',
-    sourcePage: 4,
-    verified: true,
-  },
-  {
-    scheduleId: 104,
-    routeNumber: 'GGN-CDG-04',
-    routeHeading: 'Gurugram → Chandigarh ISBT',
-    depotName: 'Gurugram Depot',
-    source: 'Gurugram',
-    destination: 'Chandigarh',
-    via: 'Delhi Bypass, Panipat, Karnal, Ambala',
-    serviceType: 'VOLVO_AC',
-    operatingDays: 'DAILY',
-    travelDate: getTodayDateString(),
-    boardingTime: '06:30:00',
-    arrivalTime: '12:00:00',
-    sourceDocument: 'Haryana Antyodaya Parivahan',
-    sourcePage: 5,
-    verified: true,
-  },
-];
+export const FALLBACK_TRIPS: Trip[] = transportData.trips.map((t, idx) => {
+  const bus = FALLBACK_BUSES[idx % FALLBACK_BUSES.length];
+  const route = FALLBACK_ROUTES[idx % FALLBACK_ROUTES.length];
+  const now = new Date();
+  const depTime = new Date(now.getTime() - 25 * 60000).toISOString();
+  const arrTime = new Date(now.getTime() + 65 * 60000).toISOString();
+
+  return {
+    id: idx + 1,
+    tripNumber: t.id.toUpperCase(),
+    bus,
+    route,
+    departureTime: depTime,
+    arrivalTime: arrTime,
+    status: t.status === 'ACTIVE' ? 'RUNNING' : 'SCHEDULED',
+  };
+});
+
+export const FALLBACK_JOURNEYS: JourneySearchResponse[] = transportData.routes.map((r, idx) => ({
+  scheduleId: idx + 1,
+  routeNumber: r.routeCode,
+  routeHeading: `${r.origin} - ${r.destination}`,
+  depotName: `${r.majorCities[0]} Depot`,
+  source: r.origin,
+  destination: r.destination,
+  via: r.majorCities.slice(1, -1).join(', '),
+  serviceType: 'ORDINARY',
+  operatingDays: 'ALL_DAYS',
+  travelDate: getTodayDateString(),
+  boardingTime: '07:30:00',
+  arrivalTime: '10:45:00',
+  verified: true,
+}));

@@ -32,6 +32,34 @@ type Props = NativeStackScreenProps<RootStackParamList, 'PassengerHome'>;
 type StatusFilter = 'all' | 'live' | 'offline';
 type QuickPill = 'all' | 'nearby' | 'favorites' | 'journey';
 
+const HARYANA_CITIES = [
+  'All Haryana',
+  'Ambala',
+  'Bhiwani',
+  'Charkhi Dadri',
+  'Faridabad',
+  'Fatehabad',
+  'Gurugram',
+  'Hisar',
+  'Jhajjar',
+  'Jind',
+  'Kaithal',
+  'Karnal',
+  'Kurukshetra',
+  'Mahendragarh',
+  'Nuh',
+  'Palwal',
+  'Panchkula',
+  'Panipat',
+  'Rewari',
+  'Rohtak',
+  'Sirsa',
+  'Sonipat',
+  'Yamunanagar',
+  'Chandigarh',
+  'Delhi NCR',
+];
+
 export default function PassengerHomeScreen({ navigation }: Props) {
   // Data states from backend
   const [buses, setBuses] = useState<Bus[]>([]);
@@ -47,6 +75,7 @@ export default function PassengerHomeScreen({ navigation }: Props) {
 
   // Filters & Search
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCity, setSelectedCity] = useState('All Haryana');
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
   const [activePill, setActivePill] = useState<QuickPill>('all');
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
@@ -283,6 +312,17 @@ export default function PassengerHomeScreen({ navigation }: Props) {
       );
     }
 
+    // City filter
+    if (selectedCity !== 'All Haryana') {
+      const c = selectedCity.toLowerCase();
+      list = list.filter(
+        (b) =>
+          b.origin.toLowerCase().includes(c) ||
+          b.destination.toLowerCase().includes(c) ||
+          b.route.toLowerCase().includes(c)
+      );
+    }
+
     // Status filter (All, Live, Offline)
     if (statusFilter === 'live') {
       list = list.filter((b) => b.status === 'LIVE');
@@ -367,6 +407,35 @@ export default function PassengerHomeScreen({ navigation }: Props) {
               <Text style={styles.clearSearch}>✕</Text>
             </TouchableOpacity>
           )}
+        </View>
+
+        {/* Haryana City Filter Chips */}
+        <View style={styles.citySection}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.cityScrollContent}
+          >
+            {HARYANA_CITIES.map((c) => (
+              <TouchableOpacity
+                key={c}
+                style={[
+                  styles.cityChip,
+                  selectedCity === c && styles.cityChipActive,
+                ]}
+                onPress={() => setSelectedCity(c)}
+              >
+                <Text
+                  style={[
+                    styles.cityChipText,
+                    selectedCity === c && styles.cityChipTextActive,
+                  ]}
+                >
+                  {c}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
         </View>
 
         {/* Quick Action Pills */}
@@ -1469,5 +1538,34 @@ const styles = StyleSheet.create({
     color: '#D1D5DB',
     fontSize: 11,
     lineHeight: 16,
+  },
+
+  citySection: {
+    marginVertical: 10,
+  },
+  cityScrollContent: {
+    paddingHorizontal: 16,
+    gap: 8,
+  },
+  cityChip: {
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    borderRadius: 18,
+    backgroundColor: '#F3F4F6',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+  },
+  cityChipActive: {
+    backgroundColor: '#0F172A',
+    borderColor: '#0F172A',
+  },
+  cityChipText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#4B5563',
+  },
+  cityChipTextActive: {
+    color: '#FFFFFF',
+    fontWeight: '700',
   },
 });
